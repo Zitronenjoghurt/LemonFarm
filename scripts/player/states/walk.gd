@@ -44,6 +44,9 @@ func Update(delta: float):
 		player.velocity = Vector2(speed, 0)
 	else:
 		state_transition.emit(self, "Idle")
+		
+	if Input.is_action_pressed("Till"):
+		state_transition.emit(self, "Till")
 
 func Exit():
 	pass

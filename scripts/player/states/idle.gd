@@ -21,5 +21,8 @@ func Update(delta: float):
 	if Utils.is_direction_key_pressed():
 		state_transition.emit(self, "Walk")
 	
+	if Input.is_action_pressed("Till"):
+		state_transition.emit(self, "Till")
+	
 func Exit():
 	pass
