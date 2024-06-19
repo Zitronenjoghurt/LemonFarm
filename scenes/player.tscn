@@ -765,11 +765,9 @@ player = NodePath("../..")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qufrw")
-animation = &"run_left"
-frame = 2
-frame_progress = 0.146427
+animation = &"idle_down"
 offset = Vector2(2.08165e-12, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5)
+position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_8tnpy")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://s2323lf5cvwl"]
+
+[ext_resource type="Script" path="res://scripts/zones/fade_area.gd" id="1_ydket"]
+
+[node name="fade_area" type="Area2D"]
+script = ExtResource("1_ydket")
