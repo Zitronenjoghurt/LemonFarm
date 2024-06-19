@@ -498,8 +498,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8tnpy"]
-radius = 7.0
-height = 18.0
+radius = 3.0
+height = 6.0
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("fsm")]
 script = ExtResource("2_1d1au")
@@ -526,4 +526,5 @@ frame = 6
 frame_progress = 0.078938
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_8tnpy")
