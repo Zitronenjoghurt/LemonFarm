@@ -1,6 +1,6 @@
 [gd_scene load_steps=104 format=3 uid="uid://b58f3rhrc0yg4"]
 
-[ext_resource type="Texture2D" uid="uid://blc6f3b0bvxa3" path="res://assets/character_spritesheet.png" id="1_o5hin"]
+[ext_resource type="Texture2D" uid="uid://blc6f3b0bvxa3" path="res://assets/character/character_spritesheet.png" id="1_o5hin"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="2_1d1au"]
 [ext_resource type="Script" path="res://scripts/fsm/state_manager.gd" id="2_vs4a5"]
 [ext_resource type="Script" path="res://scripts/player/states/idle.gd" id="3_4koq7"]
@@ -768,7 +768,8 @@ sprite_frames = SubResource("SpriteFrames_qufrw")
 animation = &"run_left"
 frame = 2
 frame_progress = 0.146427
+offset = Vector2(2.08165e-12, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, -5)
 shape = SubResource("CapsuleShape2D_8tnpy")
