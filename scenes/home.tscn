@@ -4346,7 +4346,8 @@ z_index = 1
 position = Vector2(-410, 302)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(2, 2)
+process_callback = 0
 limit_left = -550
 limit_top = -550
 limit_right = 550
@@ -4354,3 +4355,9 @@ limit_bottom = 550
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
