@@ -21,15 +21,18 @@ Enums="*res://scripts/autoload/enums.gd"
 Utils="*res://scripts/autoload/utils.gd"
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+InteractionManager="*res://scenes/interaction/InteractionManager.tscn"
 
 [dialogic]
 
 directories/dch_directory={
 "Loo": "res://dialogue/characters/Loo.dch"
 }
-directories/dtl_directory={}
-layout/style_list=[]
-layout/default_style="Default"
+directories/dtl_directory={
+"home_bed": "res://dialogue/timelines/home_bed.dtl"
+}
+layout/style_list=["res://dialogue/styles/default.tres"]
+layout/default_style="res://dialogue/styles/default.tres"
 variables={}
 glossary/default_case_sensitive=true
 text/letter_speed=0.01
@@ -49,6 +52,8 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+text/autoadvance_fixed_delay=1.0
+timer/process_in_physics=true
 
 [display]
 
@@ -110,9 +115,19 @@ dialogic_default_action={
 }
 Till={
 "deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":82,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
+Interact={
+"deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="World"
+2d_physics/layer_2="Player"
 
 [rendering]
 

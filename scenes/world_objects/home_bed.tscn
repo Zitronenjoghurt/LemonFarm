@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://xrf7obfwkyrd"]
+
+[ext_resource type="Script" path="res://scenes/world_objects/home_bed.gd" id="1_dbbmo"]
+[ext_resource type="Texture2D" uid="uid://dgqhlojaiea0h" path="res://assets/decoration/Basic_Furniture.png" id="1_udenr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t6p7"]
+atlas = ExtResource("1_udenr")
+region = Rect2(0, 24, 16, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63yxq"]
+size = Vector2(14, 22)
+
+[node name="HomeBed" type="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_dbbmo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_6t6p7")
+offset = Vector2(2.08165e-12, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11)
+shape = SubResource("RectangleShape2D_63yxq")

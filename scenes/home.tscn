@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c5isj7gqvclgg"]
+[gd_scene load_steps=36 format=3 uid="uid://c5isj7gqvclgg"]
 
 [ext_resource type="Texture2D" uid="uid://r8dvv5sp61rq" path="res://assets/environment/Grass_Tile_layers2.png" id="1_46vuy"]
 [ext_resource type="PackedScene" uid="uid://s2323lf5cvwl" path="res://scenes/zones/fade_area.tscn" id="1_d56y7"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://dxgr8ndaspven" path="res://assets/environment/Tilled_Dirt.png" id="9_k4clg"]
 [ext_resource type="PackedScene" uid="uid://bh3stvlmf6v77" path="res://scenes/zones/hide_area.tscn" id="10_kgwwq"]
 [ext_resource type="PackedScene" uid="uid://btgqd6nl16ymp" path="res://scenes/world_objects/home_roof.tscn" id="10_rqwyc"]
+[ext_resource type="PackedScene" uid="uid://xrf7obfwkyrd" path="res://scenes/world_objects/home_bed.tscn" id="17_vkdfn"]
+[ext_resource type="PackedScene" uid="uid://bcc1ur52mqvws" path="res://scenes/interaction/InteractionArea.tscn" id="18_kev2u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b8b62"]
 resource_name = "grass_patches"
@@ -2361,15 +2363,11 @@ texture = ExtResource("6_vvltx")
 4:3/0 = 0
 4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:3/0/physics_layer_0/angular_velocity = 0.0
+9:3/size_in_atlas = Vector2i(3, 3)
 9:3/0 = 0
+9:3/0/y_sort_origin = 23
 9:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 9:3/0/physics_layer_0/angular_velocity = 0.0
-10:3/0 = 0
-10:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-10:3/0/physics_layer_0/angular_velocity = 0.0
-11:3/0 = 0
-11:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-11:3/0/physics_layer_0/angular_velocity = 0.0
 0:4/0 = 0
 0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:4/0/physics_layer_0/angular_velocity = 0.0
@@ -2385,15 +2383,6 @@ texture = ExtResource("6_vvltx")
 4:4/0 = 0
 4:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:4/0/physics_layer_0/angular_velocity = 0.0
-9:4/0 = 0
-9:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-9:4/0/physics_layer_0/angular_velocity = 0.0
-10:4/0 = 0
-10:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-10:4/0/physics_layer_0/angular_velocity = 0.0
-11:4/0 = 0
-11:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-11:4/0/physics_layer_0/angular_velocity = 0.0
 0:5/0 = 0
 0:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:5/0/physics_layer_0/angular_velocity = 0.0
@@ -2406,15 +2395,6 @@ texture = ExtResource("6_vvltx")
 3:5/0 = 0
 3:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:5/0/physics_layer_0/angular_velocity = 0.0
-9:5/0 = 0
-9:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-9:5/0/physics_layer_0/angular_velocity = 0.0
-10:5/0 = 0
-10:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-10:5/0/physics_layer_0/angular_velocity = 0.0
-11:5/0 = 0
-11:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-11:5/0/physics_layer_0/angular_velocity = 0.0
 0:6/0 = 0
 0:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:6/0/physics_layer_0/angular_velocity = 0.0
@@ -4278,8 +4258,32 @@ size = Vector2(11, 10.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ml6ee"]
 size = Vector2(117, 86)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ip4gp"]
+size = Vector2(17, 15)
+
 [node name="home" type="Node2D"]
 y_sort_enabled = true
+
+[node name="player" parent="." instance=ExtResource("5_3i4jj")]
+z_index = 1
+position = Vector2(84, -15)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(2, 2)
+process_callback = 0
+limit_left = -550
+limit_top = -550
+limit_right = 550
+limit_bottom = 550
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.05
+drag_top_margin = 0.05
+drag_right_margin = 0.05
+drag_bottom_margin = 0.05
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -4310,12 +4314,13 @@ layer_8/tile_data = PackedInt32Array(-65535, 196615, 3, -131071, 196615, 3, -196
 layer_9/name = "Decoration_Middle"
 layer_9/y_sort_enabled = true
 layer_9/z_index = 1
-layer_9/tile_data = PackedInt32Array(327684, 196613, 3, 1310697, 393221, 1, 1769451, 131077, 0, 1966061, 131077, 0, 1834983, 131077, 0, 1572851, 655365, 0, 1638380, 65541, 0, 1900520, 196613, 2, 1245156, 131077, 2, 1638384, 196613, 2, 1703927, 196613, 2, 1572856, 196613, 2, 1966060, 131077, 2, 1769459, 13, 3, 2031601, 13, 3, 1966069, 13, 3, 1900529, 65549, 3, 1245164, 589837, 3, 1310700, 589837, 4, 1376236, 589837, 5, 1245165, 655373, 3, 1310701, 655373, 4, 1376237, 655373, 5, 1245166, 720909, 3, 1310702, 720909, 4, 1376238, 720909, 5)
+layer_9/tile_data = PackedInt32Array(327684, 196613, 3, 1310697, 393221, 1, 1769451, 131077, 0, 1966061, 131077, 0, 1834983, 131077, 0, 1572851, 655365, 0, 1638380, 65541, 0, 1900520, 196613, 2, 1245156, 131077, 2, 1638384, 196613, 2, 1703927, 196613, 2, 1572856, 196613, 2, 1966060, 131077, 2, 1769459, 13, 3, 2031601, 13, 3, 1966069, 13, 3, 1900529, 65549, 3, 1310701, 589837, 3)
 layer_10/name = "Decorations_Front"
 layer_10/z_index = 2
 layer_10/tile_data = PackedInt32Array()
 
 [node name="home_roof" parent="TileMap" instance=ExtResource("10_rqwyc")]
+visible = false
 z_index = 2
 position = Vector2(64, -12)
 
@@ -4341,23 +4346,14 @@ visible = false
 position = Vector2(23.5, -19)
 shape = SubResource("RectangleShape2D_ml6ee")
 
-[node name="player" parent="." instance=ExtResource("5_3i4jj")]
-z_index = 1
-position = Vector2(-410, 302)
+[node name="HomeBed" parent="TileMap" instance=ExtResource("17_vkdfn")]
+position = Vector2(39, -70)
 
-[node name="Camera2D" type="Camera2D" parent="player"]
-zoom = Vector2(2, 2)
-process_callback = 0
-limit_left = -550
-limit_top = -550
-limit_right = 550
-limit_bottom = 550
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 8.0
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-drag_left_margin = 0.1
-drag_top_margin = 0.1
-drag_right_margin = 0.1
-drag_bottom_margin = 0.1
+[node name="InteractionArea" parent="TileMap/HomeBed" instance=ExtResource("18_kev2u")]
+action_name = "sleep"
+x_offset = -19
+y_offset = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/HomeBed/InteractionArea"]
+position = Vector2(5, 12)
+shape = SubResource("RectangleShape2D_ip4gp")

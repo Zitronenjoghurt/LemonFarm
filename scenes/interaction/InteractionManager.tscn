@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxg3yxtjq0wjt"]
+
+[ext_resource type="FontFile" uid="uid://da3upsvs18iu7" path="res://assets/fonts/pixelFont-4-7x7-sproutLands.ttf" id="1_7e5p7"]
+[ext_resource type="Script" path="res://scripts/interaction/InteractionManager.gd" id="1_87g6h"]
+
+[node name="InteractionManager" type="Node2D"]
+script = ExtResource("1_87g6h")
+
+[node name="Label" type="Label" parent="."]
+z_index = 100
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -18.0
+offset_right = 56.0
+offset_bottom = 8.0
+grow_horizontal = 2
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_shadow_color = Color(0.308633, 0.358457, 0.371171, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("1_7e5p7")
+theme_override_font_sizes/font_size = 12
+text = "(E) to interact"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -990,7 +990,7 @@ animations = [{
 radius = 3.0
 height = 6.0
 
-[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("fsm")]
+[node name="player" type="CharacterBody2D" node_paths=PackedStringArray("fsm") groups=["player"]]
 script = ExtResource("2_1d1au")
 fsm = NodePath("FSM")
 
