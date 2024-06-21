@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LemonFarm"
-run/main_scene="res://scenes/home.tscn"
+run/main_scene="res://locations/home.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,8 +20,10 @@ config/icon="res://icon.svg"
 Enums="*res://scripts/autoload/enums.gd"
 Utils="*res://scripts/autoload/utils.gd"
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
-Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 InteractionManager="*res://scenes/interaction/InteractionManager.tscn"
+LocationManager="*res://scripts/autoload/location_manager.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+TransitionScreen="*res://scenes/global/TransitionScreen.tscn"
 
 [dialogic]
 

@@ -991,6 +991,8 @@ radius = 3.0
 height = 6.0
 
 [node name="player" type="CharacterBody2D" node_paths=PackedStringArray("fsm") groups=["player"]]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("2_1d1au")
 fsm = NodePath("FSM")
 

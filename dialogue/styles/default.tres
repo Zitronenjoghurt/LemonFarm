@@ -32,7 +32,7 @@ scene = ExtResource("5_ntph0")
 overrides = {
 "box_color_custom": "Color(0.780392, 0.690196, 0.611765, 0.784314)",
 "box_color_use_global": "false",
-"next_indicator_size": "Vector2(50, 50)",
+"next_indicator_size": "Vector2(75, 75)",
 "next_indicator_texture": "\"res://assets/ui/continue-indicator.png\"",
 "normal_font": "\"res://assets/fonts/pixelFont-4-7x7-sproutLands.ttf\"",
 "text_custom_color": "Color(0, 0, 0, 1)",
@@ -68,4 +68,4 @@ script = ExtResource("10_fapai")
 name = "Default Style"
 base_overrides = {}
 layers = Array[ExtResource("2_gpd6o")]([SubResource("Resource_bg43t"), SubResource("Resource_f35uc"), SubResource("Resource_ahv2h"), SubResource("Resource_6c7vq"), SubResource("Resource_8sp2d"), SubResource("Resource_lag0h"), SubResource("Resource_8s6nb"), SubResource("Resource_tipuq")])
-metadata/_latest_layer = 5
+metadata/_latest_layer = 3

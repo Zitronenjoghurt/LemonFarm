@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1i4focpud8y"]
+
+[ext_resource type="Script" path="res://scripts/teleporter.gd" id="1_kjcyn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2hcb"]
+size = Vector2(43, 125)
+
+[node name="Teleporter" type="Area2D"]
+scale = Vector2(1.01128, 1)
+script = ExtResource("1_kjcyn")
+
+[node name="TriggerZone" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v2hcb")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
