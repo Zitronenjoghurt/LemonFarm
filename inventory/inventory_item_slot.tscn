@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdgccwp42thel"]
+
+[ext_resource type="Script" path="res://inventory/inventory_item_slot.gd" id="1_is1wg"]
+[ext_resource type="Texture2D" uid="uid://feo0gbc86svu" path="res://assets/ui/Square Buttons 26x26.png" id="1_vcqqq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqocx"]
+atlas = ExtResource("1_vcqqq")
+region = Rect2(11, 107, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tpmlk"]
+texture = SubResource("AtlasTexture_jqocx")
+expand_margin_left = 4.0
+expand_margin_top = 3.0
+expand_margin_right = 4.0
+expand_margin_bottom = 6.0
+
+[node name="InventoryItemSlot" type="PanelContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(32, 32)
+theme_override_styles/panel = SubResource("StyleBoxTexture_tpmlk")
+script = ExtResource("1_is1wg")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2

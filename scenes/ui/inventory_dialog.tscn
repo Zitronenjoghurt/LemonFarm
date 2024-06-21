@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://ch0f3fh33a1sj"]
+
+[ext_resource type="Script" path="res://inventory/inventory_dialog.gd" id="1_lcv63"]
+[ext_resource type="Texture2D" uid="uid://dv6nml0x5svs6" path="res://assets/ui/Xs and check marks.png" id="1_ssjos"]
+[ext_resource type="Texture2D" uid="uid://dtfooxn7j7oyq" path="res://assets/ui/menu.png" id="1_wgdv4"]
+[ext_resource type="PackedScene" uid="uid://cdgccwp42thel" path="res://inventory/inventory_item_slot.tscn" id="2_qkldq"]
+[ext_resource type="FontFile" uid="uid://da3upsvs18iu7" path="res://assets/fonts/pixelFont-4-7x7-sproutLands.ttf" id="4_cikyq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqycn"]
+atlas = ExtResource("1_wgdv4")
+region = Rect2(139, 12, 106, 122)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pbung"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 20.0
+content_margin_bottom = 10.0
+texture = SubResource("AtlasTexture_wqycn")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_prwhk"]
+atlas = ExtResource("1_ssjos")
+region = Rect2(0, 80, 16, 16)
+
+[node name="InventoryDialog" type="PanelContainer"]
+custom_minimum_size = Vector2(160, 160)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_pbung")
+script = ExtResource("1_lcv63")
+slot_scene = ExtResource("2_qkldq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_cikyq")
+theme_override_font_sizes/font_size = 12
+text = "Inventory
+"
+horizontal_alignment = 1
+
+[node name="CloseButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+action_mode = 0
+icon = SubResource("AtlasTexture_prwhk")
+flat = true
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 5
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

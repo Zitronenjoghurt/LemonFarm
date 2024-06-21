@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv0lbl1abp876"]
+
+[ext_resource type="Texture2D" uid="uid://c4vdhwxyek8bt" path="res://assets/items/basic_items.png" id="1_t86mf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a74cc"]
+atlas = ExtResource("1_t86mf")
+region = Rect2(32, 48, 16, 16)
+
+[node name="WoodDropped" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_a74cc")
