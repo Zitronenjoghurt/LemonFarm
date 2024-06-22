@@ -13,7 +13,8 @@ func _ready():
 	LocationManager.on_trigger_player_spawn.connect(_on_spawn)
 
 func _physics_process(delta):
-	move_and_slide()
+	if Global.player_can_move:
+		move_and_slide()
 
 func _on_spawn(spawn_position: Vector2, direction: FD):
 	self.global_position = spawn_position

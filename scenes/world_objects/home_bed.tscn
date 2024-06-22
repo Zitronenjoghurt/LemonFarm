@@ -16,9 +16,10 @@ y_sort_enabled = true
 script = ExtResource("1_dbbmo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -22)
 texture = SubResource("AtlasTexture_6t6p7")
 offset = Vector2(2.08165e-12, 10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 11)
+position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_63yxq")

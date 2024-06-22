@@ -8,4 +8,4 @@ func _unhandled_input(event):
 		if inventory_dialog.visible:
 			inventory_dialog.close()
 		else:
-			inventory_dialog.open(player.inventory)
+				inventory_dialog.open(player.inventory)

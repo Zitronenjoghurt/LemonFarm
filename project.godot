@@ -24,6 +24,7 @@ InteractionManager="*res://scenes/interaction/InteractionManager.tscn"
 LocationManager="*res://scripts/autoload/location_manager.gd"
 TransitionScreen="*res://scenes/global/TransitionScreen.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+Global="*res://scripts/autoload/global.gd"
 
 [dialogic]
 

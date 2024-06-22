@@ -18,6 +18,9 @@ func Enter():
 func Update(delta: float):
 	sprite.play(ANIMATIONS[player.current_direction])
 	
+	if !Global.player_can_move:
+		return
+	
 	if Utils.is_direction_key_pressed():
 		state_transition.emit(self, "Walk")
 	

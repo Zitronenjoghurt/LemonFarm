@@ -6,6 +6,7 @@ extends CanvasLayer
 signal on_faded_out
 
 const SPRITE_ANIMATIONS = ["A", "B", "C", "D", "E"]
+var last_animation: String = "A"
 
 func _ready():
 	color_rect.visible = false
@@ -14,7 +15,12 @@ func _ready():
 func transition():
 	color_rect.visible = true
 	animation_player.play("fade_out")
-	$ColorRect/AnimatedSprite2D.play(SPRITE_ANIMATIONS.pick_random())
+	
+	var available_animations = SPRITE_ANIMATIONS.duplicate()
+	available_animations.erase(last_animation)
+	var random_animation = available_animations.pick_random()
+	%RandomEmoji.play(random_animation)
+	last_animation = random_animation
 
 func _on_animation_finished(animation_name):
 	if animation_name == "fade_out":

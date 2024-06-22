@@ -545,8 +545,21 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.87451, 0.780392, 0.654902, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ColorRect"]
-position = Vector2(567, 297)
+[node name="BoxContainer" type="BoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -163.0
+offset_top = -159.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="RandomEmoji" type="AnimatedSprite2D" parent="ColorRect/BoxContainer"]
+unique_name_in_owner = true
+position = Vector2(99, 95)
 scale = Vector2(3.97, 3.97)
 sprite_frames = SubResource("SpriteFrames_nae51")
 animation = &"E"
