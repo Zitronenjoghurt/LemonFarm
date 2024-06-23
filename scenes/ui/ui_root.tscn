@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bah51034w87vd"]
+
+[ext_resource type="Script" path="res://scripts/ui/UIRoot.gd" id="1_lqerw"]
+[ext_resource type="PackedScene" uid="uid://ch0f3fh33a1sj" path="res://scenes/ui/inventory_dialog.tscn" id="2_tt5jv"]
+[ext_resource type="PackedScene" uid="uid://b06fmyjiuyct3" path="res://scenes/ui/pause_dialog.tscn" id="3_daxs4"]
+
+[node name="UIRoot" type="CanvasLayer"]
+script = ExtResource("1_lqerw")
+
+[node name="InventoryDialog" parent="." instance=ExtResource("2_tt5jv")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -13.5
+offset_right = 43.5
+offset_bottom = 13.5
+
+[node name="PauseDialog" parent="." instance=ExtResource("3_daxs4")]
+unique_name_in_owner = true
+visible = false

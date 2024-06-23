@@ -1,0 +1,19 @@
+[gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://dirocdle7lu4s"]
+
+[ext_resource type="Texture2D" uid="uid://dhjcj1s0goij" path="res://assets/ui/Square Buttons 26x19.png" id="1_xgq78"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxeak"]
+atlas = ExtResource("1_xgq78")
+region = Rect2(11, 102, 26, 19)
+
+[resource]
+content_margin_left = 10.0
+content_margin_top = 7.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+texture = SubResource("AtlasTexture_cxeak")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+modulate_color = Color(0.875457, 0.875457, 0.875457, 1)

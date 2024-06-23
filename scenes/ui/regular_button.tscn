@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3fum4gxs5rkr"]
+
+[ext_resource type="FontFile" uid="uid://da3upsvs18iu7" path="res://assets/fonts/pixelFont-4-7x7-sproutLands.ttf" id="1_jtuos"]
+[ext_resource type="StyleBox" uid="uid://yjll0nwdysph" path="res://resources/ui/buttons/regular_normal.tres" id="2_praou"]
+[ext_resource type="StyleBox" uid="uid://dirocdle7lu4s" path="res://resources/ui/buttons/regular_hover.tres" id="3_6mop6"]
+[ext_resource type="StyleBox" uid="uid://d1k1ag3ixen2m" path="res://resources/ui/buttons/regular_clicked.tres" id="4_15h6c"]
+
+[node name="ContinueButton" type="Button"]
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0.942823, 0.942823, 0.942823, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("1_jtuos")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("2_praou")
+theme_override_styles/hover = ExtResource("3_6mop6")
+theme_override_styles/pressed = ExtResource("4_15h6c")
+action_mode = 0
