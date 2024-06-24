@@ -22,9 +22,11 @@ func load_game(index: int = 0):
 	var save_state: SaveGame
 	var save_path = get_save_path(index)
 	
+	var is_loading_state = true
 	if ResourceLoader.exists(save_path):
 		save_state = load(save_path) as SaveGame
 	else:
+		is_loading_state = false
 		save_state = SaveGame.new() as SaveGame
 	
 	var scene_path = LocationManager.scenes[save_state.last_scene_name]
@@ -35,5 +37,4 @@ func load_game(index: int = 0):
 	new_scene.instantiate()
 	get_tree().call_deferred("change_scene_to_packed", new_scene)
 	
-	is_loading_state = true
 	current_state = save_state

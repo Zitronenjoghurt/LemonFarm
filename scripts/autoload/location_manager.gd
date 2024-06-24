@@ -6,6 +6,8 @@ const scenes = {
 	"east_island": "res://locations/east_island.tscn"
 }
 
+const start_location = "home"
+
 signal on_trigger_player_spawn
 
 var destination_teleporter_id
