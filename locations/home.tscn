@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c5isj7gqvclgg"]
+[gd_scene load_steps=18 format=3 uid="uid://c5isj7gqvclgg"]
 
 [ext_resource type="Script" path="res://scripts/location.gd" id="1_esdv2"]
 [ext_resource type="PackedScene" uid="uid://b58f3rhrc0yg4" path="res://scenes/player.tscn" id="1_hyasa"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b1i4focpud8y" path="res://scenes/zones/Teleporter.tscn" id="9_2gmg0"]
 [ext_resource type="PackedScene" uid="uid://bah51034w87vd" path="res://scenes/ui/ui_root.tscn" id="10_523ae"]
 [ext_resource type="PackedScene" uid="uid://dq0tdof34fov0" path="res://scenes/entities/dropped_item.tscn" id="12_dclgw"]
+[ext_resource type="Resource" uid="uid://mhlbm4gwcj6q" path="res://inventory/item_data/plank.tres" id="12_lmsb0"]
+[ext_resource type="Resource" uid="uid://bqwyq3lbes0o3" path="res://inventory/item_data/twig.tres" id="13_kr2vt"]
 [ext_resource type="Resource" uid="uid://drfworsymexxk" path="res://inventory/item_data/wood.tres" id="13_yqknw"]
 [ext_resource type="PackedScene" uid="uid://btgqd6nl16ymp" path="res://scenes/world_objects/home_roof.tscn" id="14_rgfeg"]
 [ext_resource type="PackedScene" uid="uid://s2323lf5cvwl" path="res://scenes/zones/fade_area.tscn" id="15_qimt3"]
@@ -130,15 +132,15 @@ position = Vector2(-50.4311, 0)
 
 [node name="DroppedItem" parent="." instance=ExtResource("12_dclgw")]
 position = Vector2(65, 44)
-item = ExtResource("13_yqknw")
+item = ExtResource("12_lmsb0")
 
 [node name="DroppedItem2" parent="." instance=ExtResource("12_dclgw")]
 position = Vector2(28, 42)
 item = ExtResource("13_yqknw")
 
 [node name="DroppedItem3" parent="." instance=ExtResource("12_dclgw")]
-position = Vector2(30, 90)
-item = ExtResource("13_yqknw")
+position = Vector2(14, 94)
+item = ExtResource("12_lmsb0")
 
 [node name="DroppedItem4" parent="." instance=ExtResource("12_dclgw")]
 position = Vector2(120, 51)
@@ -150,12 +152,21 @@ item = ExtResource("13_yqknw")
 
 [node name="DroppedItem6" parent="." instance=ExtResource("12_dclgw")]
 position = Vector2(160, 95)
-item = ExtResource("13_yqknw")
+item = ExtResource("13_kr2vt")
 
 [node name="DroppedItem7" parent="." instance=ExtResource("12_dclgw")]
 position = Vector2(166, 50)
 item = ExtResource("13_yqknw")
 
 [node name="UIRoot" parent="." instance=ExtResource("10_523ae")]
+
+[node name="DroppedItem8" parent="." instance=ExtResource("12_dclgw")]
+position = Vector2(615.338, 538)
+scale = Vector2(1.01128, 1)
+item = ExtResource("12_lmsb0")
+
+[node name="DroppedItem9" parent="." instance=ExtResource("12_dclgw")]
+position = Vector2(54, 121)
+item = ExtResource("12_lmsb0")
 
 [editable path="Teleporter_0"]

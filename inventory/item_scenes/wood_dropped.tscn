@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://cv0lbl1abp876"]
 
-[ext_resource type="Texture2D" uid="uid://c4vdhwxyek8bt" path="res://assets/items/basic_items.png" id="1_t86mf"]
+[ext_resource type="Texture2D" uid="uid://fqhwpuhhgjlu" path="res://assets/items/basic_items_wo_outline.png" id="1_jkf5o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a74cc"]
-atlas = ExtResource("1_t86mf")
+atlas = ExtResource("1_jkf5o")
 region = Rect2(32, 48, 16, 16)
 
 [node name="WoodDropped" type="Node2D"]
