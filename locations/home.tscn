@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://c5isj7gqvclgg"]
 
-[ext_resource type="Script" path="res://scripts/location.gd" id="1_avr6v"]
+[ext_resource type="Script" path="res://scripts/location.gd" id="1_esdv2"]
 [ext_resource type="PackedScene" uid="uid://b58f3rhrc0yg4" path="res://scenes/player.tscn" id="1_hyasa"]
 [ext_resource type="TileSet" uid="uid://dsskbas5aq5n3" path="res://tilesets/default_tileset.tres" id="2_v8bvp"]
 [ext_resource type="PackedScene" uid="uid://b1i4focpud8y" path="res://scenes/zones/Teleporter.tscn" id="9_2gmg0"]
@@ -24,7 +24,7 @@ size = Vector2(17, 15)
 
 [node name="home" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_avr6v")
+script = ExtResource("1_esdv2")
 
 [node name="Player" parent="." instance=ExtResource("1_hyasa")]
 unique_name_in_owner = true
@@ -119,11 +119,14 @@ shape = SubResource("RectangleShape2D_ip4gp")
 
 [node name="Teleporter_0" parent="." instance=ExtResource("9_2gmg0")]
 position = Vector2(585, 448)
-target_location_name = "east_land"
+target_location_name = "east_island"
 spawn_direction = 2
 
+[node name="TriggerZone" parent="Teleporter_0" index="0"]
+position = Vector2(6.73834, -0.5)
+
 [node name="SpawnPoint" parent="Teleporter_0" index="1"]
-position = Vector2(-51.42, 0)
+position = Vector2(-50.4311, 0)
 
 [node name="DroppedItem" parent="." instance=ExtResource("12_dclgw")]
 position = Vector2(65, 44)

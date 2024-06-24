@@ -27,10 +27,13 @@ func load_game(index: int = 0):
 	else:
 		save_state = SaveGame.new() as SaveGame
 	
-	var scene_to_load = LocationManager.scenes[save_state.last_scene_name]
-	if not scene_to_load:
+	var scene_path = LocationManager.scenes[save_state.last_scene_name]
+	if not scene_path:
 		return
-	get_tree().call_deferred("change_scene_to_packed", scene_to_load)
+		
+	var new_scene = load(scene_path)
+	new_scene.instantiate()
+	get_tree().call_deferred("change_scene_to_packed", new_scene)
 	
 	is_loading_state = true
 	current_state = save_state

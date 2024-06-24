@@ -24,7 +24,6 @@ InteractionManager="*res://scenes/interaction/InteractionManager.tscn"
 LocationManager="*res://scripts/autoload/location_manager.gd"
 TransitionScreen="*res://scenes/global/TransitionScreen.tscn"
 Global="*res://scripts/autoload/global.gd"
-DiscordRPCLoader="*res://addons/discord-rpc-gd/nodes/discord_autoload.gd"
 SaveManager="*res://scripts/autoload/save_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
