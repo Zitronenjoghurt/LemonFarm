@@ -38,7 +38,7 @@ func save_game():
 	var save_path = get_save_path(Global.current_save_file)
 	ResourceSaver.save(current_state, save_path)
 
-func load_game(index: int = 0):
+func load_game(index: int):
 	var save_state: SaveGame
 	var save_path = get_save_path(index)
 	
@@ -52,11 +52,11 @@ func load_game(index: int = 0):
 	var scene_path = LocationManager.scenes[save_state.last_scene_name]
 	if not scene_path:
 		return
-		
+	
+	current_state = save_state
+	
 	var new_scene = load(scene_path)
 	new_scene.instantiate()
 	get_tree().call_deferred("change_scene_to_packed", new_scene)
-	
-	current_state = save_state
 	
 	Global.current_location = save_state.last_scene_name

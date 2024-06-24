@@ -6,9 +6,11 @@ class_name Location
 func _ready():
 	if SaveManager.is_loading_state:
 		apply_save_state()
+		SaveManager.is_loading_state = false
 	
 	if LocationManager.destination_teleporter_id != null:
 		_on_teleporter_spawn(LocationManager.destination_teleporter_id)
+		LocationManager.destination_teleporter_id = null
 		
 	load_saved_objects()
 

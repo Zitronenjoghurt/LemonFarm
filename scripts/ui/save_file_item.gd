@@ -25,5 +25,5 @@ func _on_new_button_pressed():
 func start():
 	if file_index < 0:
 		return
-	SaveManager.load_game(file_index)
 	Global.current_save_file = file_index
+	SaveManager.load_game(file_index)
