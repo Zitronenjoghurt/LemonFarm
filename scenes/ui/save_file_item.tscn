@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://cbkcn85jwrp6u"]
+
+[ext_resource type="Texture2D" uid="uid://feo0gbc86svu" path="res://assets/ui/Square Buttons 26x26.png" id="1_of163"]
+[ext_resource type="Script" path="res://scripts/ui/save_file_item.gd" id="2_8l058"]
+[ext_resource type="FontFile" uid="uid://da3upsvs18iu7" path="res://assets/fonts/pixelFont-4-7x7-sproutLands.ttf" id="2_na8o4"]
+[ext_resource type="StyleBox" uid="uid://bjrhlmjj4eef6" path="res://resources/ui/buttons/play_hover.tres" id="3_p8yhm"]
+[ext_resource type="StyleBox" uid="uid://cqrerv50du8ur" path="res://resources/ui/buttons/play_normal.tres" id="4_ggfkh"]
+[ext_resource type="StyleBox" uid="uid://cgxby56jw12dh" path="res://resources/ui/buttons/play_clicked.tres" id="4_hghcd"]
+[ext_resource type="StyleBox" uid="uid://bnrwh5b7ho4sc" path="res://resources/ui/buttons/plus_normal.tres" id="4_qm8jo"]
+[ext_resource type="StyleBox" uid="uid://bjxbqg5w7gwor" path="res://resources/ui/buttons/plus_hover.tres" id="5_vjow8"]
+[ext_resource type="StyleBox" uid="uid://mme51fddw8qr" path="res://resources/ui/buttons/plus_clicked.tres" id="6_pmmek"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7xnr"]
+atlas = ExtResource("1_of163")
+region = Rect2(11, 11, 25, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5sidx"]
+content_margin_left = 10.0
+content_margin_top = 7.0
+content_margin_right = 7.0
+content_margin_bottom = 13.0
+texture = SubResource("AtlasTexture_m7xnr")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[node name="SaveFileItem" type="PanelContainer"]
+custom_minimum_size = Vector2(100, 50)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5sidx")
+script = ExtResource("2_8l058")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.662452, 0.662452, 0.662452, 1)
+theme_override_fonts/font = ExtResource("2_na8o4")
+text = "File 1"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_styles/normal = ExtResource("4_ggfkh")
+theme_override_styles/hover = ExtResource("3_p8yhm")
+theme_override_styles/pressed = ExtResource("4_hghcd")
+action_mode = 0
+
+[node name="NewButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_styles/normal = ExtResource("4_qm8jo")
+theme_override_styles/hover = ExtResource("5_vjow8")
+theme_override_styles/pressed = ExtResource("6_pmmek")
+action_mode = 0
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/NewButton" to="." method="_on_new_button_pressed"]

@@ -17,12 +17,12 @@ func _on_continue_button_pressed():
 	close()
 
 func _on_exit_button_pressed():
-	await SaveManager.save_game(0)
+	await SaveManager.save_game()
 	get_tree().quit()
 
 func _on_main_menu_button_pressed():
-	Global.player_can_move = true
-	await SaveManager.save_game(0)
+	close()
+	await SaveManager.save_game()
 	var main_menu = load(Global.main_menu_scene_path)
 	main_menu.instantiate()
 	get_tree().call_deferred("change_scene_to_packed", main_menu)

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://34kf22ia5xym"]
+
+[ext_resource type="StyleBox" uid="uid://c88k4xydwlc5w" path="res://resources/ui/dialog_background.tres" id="1_1humx"]
+[ext_resource type="Script" path="res://scripts/ui/save_file_dialog.gd" id="2_fhthv"]
+[ext_resource type="PackedScene" uid="uid://cbkcn85jwrp6u" path="res://scenes/ui/save_file_item.tscn" id="3_oc12t"]
+
+[node name="SaveFileDialog" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_1humx")
+script = ExtResource("2_fhthv")
+file_item_scene = ExtResource("3_oc12t")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 2

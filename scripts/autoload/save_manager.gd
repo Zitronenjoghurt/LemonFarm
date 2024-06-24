@@ -6,7 +6,10 @@ var current_state: SaveGame
 func get_save_path(index: int) -> String:
 	return "user://savegame_"+ str(index) +".tres"
 
-func save_game(index: int = 0):
+func save_file_exists(index: int) -> bool:
+	return ResourceLoader.exists(get_save_path(index))
+
+func save_game():
 	if not current_state is SaveGame:
 		current_state = SaveGame.new()
 	
@@ -32,7 +35,7 @@ func save_game(index: int = 0):
 	if Global.current_location not in current_state.saved_locations:
 		current_state.saved_locations.append(Global.current_location)
 	
-	var save_path = get_save_path(index)
+	var save_path = get_save_path(Global.current_save_file)
 	ResourceSaver.save(current_state, save_path)
 
 func load_game(index: int = 0):

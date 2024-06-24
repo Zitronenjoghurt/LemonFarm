@@ -1,18 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b06fmyjiuyct3"]
+[gd_scene load_steps=5 format=3 uid="uid://b06fmyjiuyct3"]
 
-[ext_resource type="Texture2D" uid="uid://dtfooxn7j7oyq" path="res://assets/ui/menu.png" id="1_et8kt"]
 [ext_resource type="Script" path="res://scripts/ui/pause_dialog.gd" id="1_gb2we"]
 [ext_resource type="PackedScene" uid="uid://c3fum4gxs5rkr" path="res://scenes/ui/regular_button.tscn" id="1_h8h58"]
+[ext_resource type="StyleBox" uid="uid://c88k4xydwlc5w" path="res://resources/ui/dialog_background.tres" id="1_vroma"]
 [ext_resource type="FontFile" uid="uid://da3upsvs18iu7" path="res://assets/fonts/pixelFont-4-7x7-sproutLands.ttf" id="2_q5w6r"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ahcbi"]
-atlas = ExtResource("1_et8kt")
-region = Rect2(139, 12, 106, 122)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u36je"]
-texture = SubResource("AtlasTexture_ahcbi")
-expand_margin_top = 9.0
-expand_margin_bottom = 8.0
 
 [node name="PauseDialog" type="PanelContainer"]
 custom_minimum_size = Vector2(160, 160)
@@ -29,7 +20,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxTexture_u36je")
+theme_override_styles/panel = ExtResource("1_vroma")
 script = ExtResource("1_gb2we")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

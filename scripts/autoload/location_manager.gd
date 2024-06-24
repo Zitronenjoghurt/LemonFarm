@@ -17,7 +17,7 @@ func change_location(location_name, destination_id):
 	if not scene_path:
 		return
 	
-	SaveManager.save_game(0)
+	SaveManager.save_game()
 	
 	TransitionScreen.transition()
 	await TransitionScreen.on_faded_out
