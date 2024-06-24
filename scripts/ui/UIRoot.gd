@@ -8,7 +8,7 @@ func _ready():
 	pass
 
 func _unhandled_input(event):
-	if event.is_action_released("Inventory"):
+	if event.is_action_released("Inventory") and not Global.paused:
 		if inventory_dialog.visible:
 			inventory_dialog.close()
 		else:
@@ -19,4 +19,4 @@ func _unhandled_input(event):
 			pause_dialog.close()
 		else:
 			pause_dialog.open()
-	
+			inventory_dialog.hide()

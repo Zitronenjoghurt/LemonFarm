@@ -6,6 +6,7 @@ const FD = Enums.FacingDirection
 var current_direction: FD = FD.DOWN
 var speed = 50
 var run_speed_multiplier = 2
+var has_moved = false
 
 var inventory: Inventory = Inventory.new()
 

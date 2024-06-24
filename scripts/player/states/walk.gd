@@ -24,6 +24,8 @@ func Enter():
 	
 func Update(delta: float):
 	var speed = player.speed
+	player.has_moved = true
+	
 	if Utils.is_running():
 		speed *= player.run_speed_multiplier
 		sprite.play(RUN_ANIMATIONS[player.current_direction])

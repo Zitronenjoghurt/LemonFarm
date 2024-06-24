@@ -17,6 +17,8 @@ func change_location(location_name, destination_id):
 	if not scene_path:
 		return
 	
+	SaveManager.save_game(0)
+	
 	TransitionScreen.transition()
 	await TransitionScreen.on_faded_out
 	
@@ -25,6 +27,8 @@ func change_location(location_name, destination_id):
 	
 	destination_teleporter_id = destination_id
 	get_tree().call_deferred("change_scene_to_packed", new_scene)
+	
+	Global.current_location = location_name
 
 func trigger_player_spawn(position: Vector2, direction: Enums.FacingDirection):
 	on_trigger_player_spawn.emit(position, direction)

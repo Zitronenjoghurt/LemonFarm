@@ -22,4 +22,4 @@ func open(inventory: Inventory):
 
 func close():
 	hide()
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN

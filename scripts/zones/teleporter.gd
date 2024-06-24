@@ -9,4 +9,5 @@ class_name Teleporter
 
 func _on_body_entered(body):
 	if body is Player:
-		LocationManager.change_location(target_location_name, destination_teleporter_id)
+		if body.has_moved:
+			LocationManager.change_location(target_location_name, destination_teleporter_id)

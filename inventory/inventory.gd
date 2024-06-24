@@ -10,3 +10,6 @@ func remove_item(item: Item):
 	
 func get_items() -> Array[Item]:
 	return _content
+
+func set_items(items: Array[Item]):
+	_content = items
