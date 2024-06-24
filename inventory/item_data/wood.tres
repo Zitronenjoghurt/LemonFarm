@@ -10,6 +10,7 @@ region = Rect2(32, 48, 16, 16)
 
 [resource]
 script = ExtResource("1_yn0j4")
+id = "wood"
 name = "Wood"
 icon = SubResource("AtlasTexture_hcb8h")
 dropped_scene = ExtResource("1_rq0hi")

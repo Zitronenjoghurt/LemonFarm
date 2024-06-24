@@ -1,17 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://b06fmyjiuyct3"]
+[gd_scene load_steps=7 format=3 uid="uid://b06fmyjiuyct3"]
 
+[ext_resource type="Texture2D" uid="uid://dtfooxn7j7oyq" path="res://assets/ui/menu.png" id="1_et8kt"]
 [ext_resource type="Script" path="res://scripts/ui/pause_dialog.gd" id="1_gb2we"]
 [ext_resource type="PackedScene" uid="uid://c3fum4gxs5rkr" path="res://scenes/ui/regular_button.tscn" id="1_h8h58"]
+[ext_resource type="FontFile" uid="uid://da3upsvs18iu7" path="res://assets/fonts/pixelFont-4-7x7-sproutLands.ttf" id="2_q5w6r"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c61qf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahcbi"]
+atlas = ExtResource("1_et8kt")
+region = Rect2(139, 12, 106, 122)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u36je"]
+texture = SubResource("AtlasTexture_ahcbi")
+expand_margin_top = 9.0
+expand_margin_bottom = 8.0
 
 [node name="PauseDialog" type="PanelContainer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+custom_minimum_size = Vector2(160, 160)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_c61qf")
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxTexture_u36je")
 script = ExtResource("1_gb2we")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -20,13 +38,48 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 10
 
+[node name="Title" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_q5w6r")
+theme_override_font_sizes/font_size = 28
+text = "PAUSE"
+horizontal_alignment = 1
+
 [node name="ContinueButton" parent="VBoxContainer" instance=ExtResource("1_h8h58")]
 layout_mode = 2
 text = "Continue"
 
+[node name="SettingsButton" parent="VBoxContainer" instance=ExtResource("1_h8h58")]
+layout_mode = 2
+text = "Settings"
+
+[node name="MainMenuButton" parent="VBoxContainer" instance=ExtResource("1_h8h58")]
+layout_mode = 2
+text = "Main Menu"
+
 [node name="ExitButton" parent="VBoxContainer" instance=ExtResource("1_h8h58")]
 layout_mode = 2
-text = "Save + Quit"
+text = "QUIT"
+
+[node name="Hint" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_q5w6r")
+theme_override_font_sizes/font_size = 6
+text = "the game saves automatically"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
