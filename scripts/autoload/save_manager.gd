@@ -18,7 +18,7 @@ func save_game():
 	var player = get_tree().get_first_node_in_group("player") as Player
 	current_state.player_position = player.global_position
 	current_state.player_direction = player.current_direction
-	current_state.player_inventory = player.inventory.get_items()
+	current_state.player_inventory = player.inventory
 	
 	var collected_object_data: Array[ObjectData] = []
 	get_tree().call_group("saved_object", "on_save_game", collected_object_data)

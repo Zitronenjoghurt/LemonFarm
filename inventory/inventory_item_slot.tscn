@@ -6,10 +6,18 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jqocx"]
 atlas = ExtResource("1_vcqqq")
-region = Rect2(13, 109, 22, 22)
+region = Rect2(10, 107, 28, 28)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tpmlk"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
 texture = SubResource("AtlasTexture_jqocx")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
 
 [node name="InventoryItemSlot" type="PanelContainer"]
 custom_minimum_size = Vector2(32, 32)
@@ -20,27 +28,18 @@ script = ExtResource("1_is1wg")
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ItemCount" type="Label" parent="TextureRect"]
+[node name="ItemCount" type="Label" parent="."]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -18.06
-offset_top = -13.0
-offset_right = -0.0600014
-grow_horizontal = 0
-grow_vertical = 0
+layout_mode = 2
 size_flags_horizontal = 8
+size_flags_vertical = 8
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("3_ahr06")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 12
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 2

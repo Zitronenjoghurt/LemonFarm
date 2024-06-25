@@ -8,4 +8,8 @@ region = Rect2(133, 68, 22, 24)
 
 [resource]
 texture = SubResource("AtlasTexture_gi6yo")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 modulate_color = Color(0.873298, 0.873298, 0.873298, 1)

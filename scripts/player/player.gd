@@ -12,7 +12,7 @@ var inventory: Inventory = Inventory.new()
 
 func _ready():
 	LocationManager.on_trigger_player_spawn.connect(_on_spawn)
-	inventory.set_items(SaveManager.current_state.player_inventory)
+	inventory = SaveManager.current_state.player_inventory
 
 func _physics_process(delta):
 	if Global.player_can_move:

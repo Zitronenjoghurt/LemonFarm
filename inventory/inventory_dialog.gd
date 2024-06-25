@@ -15,13 +15,14 @@ func open(inventory: Inventory):
 	for child in grid_container.get_children():
 		child.queue_free()
 	
-	for item_id in inventory.get_items():
+	for i in range (inventory.get_slot_count()):
 		var slot = slot_scene.instantiate()
 		grid_container.add_child(slot)
 		
-		var item = inventory.get_item_by_id(item_id)
-		var amount = inventory.get_amount(item_id)
-		slot.display_item(item, amount)
+		var item = inventory.get_item_at_slot(i)
+		if item is Item:
+			var amount = inventory.get_amount_at_slot(i)
+			slot.display_item(item, amount)
 
 func close():
 	hide()
