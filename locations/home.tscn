@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c5isj7gqvclgg"]
+[gd_scene load_steps=19 format=3 uid="uid://c5isj7gqvclgg"]
 
 [ext_resource type="Script" path="res://scripts/location.gd" id="1_esdv2"]
 [ext_resource type="PackedScene" uid="uid://b58f3rhrc0yg4" path="res://scenes/player.tscn" id="1_hyasa"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://bqwyq3lbes0o3" path="res://inventory/item_data/twig.tres" id="13_kr2vt"]
 [ext_resource type="Resource" uid="uid://drfworsymexxk" path="res://inventory/item_data/wood.tres" id="13_yqknw"]
 [ext_resource type="PackedScene" uid="uid://btgqd6nl16ymp" path="res://scenes/world_objects/home_roof.tscn" id="14_rgfeg"]
+[ext_resource type="PackedScene" uid="uid://icibteq2vg73" path="res://scenes/world_objects/chest.tscn" id="15_htyf5"]
 [ext_resource type="PackedScene" uid="uid://s2323lf5cvwl" path="res://scenes/zones/fade_area.tscn" id="15_qimt3"]
 [ext_resource type="PackedScene" uid="uid://bh3stvlmf6v77" path="res://scenes/zones/hide_area.tscn" id="16_tc5w8"]
 [ext_resource type="PackedScene" uid="uid://xrf7obfwkyrd" path="res://scenes/world_objects/home_bed.tscn" id="17_mt35w"]
@@ -84,6 +85,7 @@ layer_10/z_index = 2
 layer_10/tile_data = PackedInt32Array()
 
 [node name="home_roof" parent="TileMap" instance=ExtResource("14_rgfeg")]
+visible = false
 z_index = 2
 position = Vector2(64, -12)
 
@@ -168,5 +170,8 @@ item = ExtResource("12_lmsb0")
 [node name="DroppedItem9" parent="." instance=ExtResource("12_dclgw")]
 position = Vector2(54, 121)
 item = ExtResource("12_lmsb0")
+
+[node name="Chest" parent="." instance=ExtResource("15_htyf5")]
+position = Vector2(136, -52)
 
 [editable path="Teleporter_0"]
