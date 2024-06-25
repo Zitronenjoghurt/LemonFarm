@@ -21,7 +21,6 @@ func apply_save_state():
 	var state = SaveManager.current_state as SaveGame
 	player.global_position = state.player_position
 	player.current_direction = state.player_direction
-	player.inventory.set_items(state.player_inventory)
 
 func load_saved_objects():
 	var state = SaveManager.current_state as SaveGame
