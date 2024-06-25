@@ -1,16 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq0tdof34fov0"]
+[gd_scene load_steps=4 format=3 uid="uid://dq0tdof34fov0"]
 
 [ext_resource type="Script" path="res://scenes/entities/dropped_item.gd" id="1_3yogt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iv52j"]
-radius = 11.0
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l60yb"]
+radius = 25.0
 
 [node name="DroppedItem" type="Node2D"]
 script = ExtResource("1_3yogt")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="CollectionArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea"]
 shape = SubResource("CircleShape2D_iv52j")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="AttractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractionArea"]
+shape = SubResource("CircleShape2D_l60yb")
+
+[connection signal="body_entered" from="CollectionArea" to="." method="_on_collection_area_body_entered"]
+[connection signal="body_entered" from="AttractionArea" to="." method="_on_attraction_area_body_entered"]

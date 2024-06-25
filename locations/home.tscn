@@ -161,7 +161,7 @@ item = ExtResource("13_yqknw")
 [node name="UIRoot" parent="." instance=ExtResource("10_523ae")]
 
 [node name="DroppedItem8" parent="." instance=ExtResource("12_dclgw")]
-position = Vector2(615.338, 538)
+position = Vector2(197, 78)
 scale = Vector2(1.01128, 1)
 item = ExtResource("12_lmsb0")
 

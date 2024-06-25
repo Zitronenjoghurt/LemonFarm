@@ -1,18 +1,39 @@
 extends Node2D
 
 @export var item: Item
+@export var attraction_speed: int = 150
 
 @onready var location = Global.current_location
+var was_dropped: bool = false
 
 func _ready():
+	set_physics_process(false)
 	add_to_group("saved_object")
 	if item is Item:
 		display_item()
 
-func _on_area_2d_body_entered(body):
+func _on_collection_area_body_entered(body):
 	if body is Player:
 		body.on_item_picked_up(item)
 		queue_free()
+		
+func _on_attraction_area_body_entered(body):
+	if was_dropped:
+		return
+	
+	if body is Player:
+		start_attraction()
+
+func start_attraction():
+	set_physics_process(true)
+	
+func _physics_process(delta):
+	var target = get_tree().get_first_node_in_group("player")
+	if not target is Player:
+		return
+	
+	var direction = (target.position - position).normalized()
+	position += direction * attraction_speed * delta
 
 func display_item():
 	var instance = item.dropped_scene.instantiate()
