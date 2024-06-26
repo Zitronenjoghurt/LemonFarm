@@ -30,9 +30,29 @@ func _ready():
 			front_collision.show()
 			sprite.play("front_closed")
 			
+func animate_opening():
+	match current_orientation:
+		Facing.LEFT or Facing.RIGHT:
+			sprite.play("left_open")
+		Facing.FRONT:
+			sprite.play("front_open")
+			
+func animate_closing():
+	match current_orientation:
+		Facing.LEFT or Facing.RIGHT:
+			sprite.play("left_close")
+		Facing.FRONT:
+			sprite.play("front_close")
+
 func _on_interact():
-	Global.player_can_move = false
-	Global.in_dialogue = true
+	InventoryManager.open_secondary_inventory(inventory, "Chest", "chest")
+	InventoryManager.inventory_closed.connect(_on_closed)
+	animate_opening()
+	
+func _on_closed():
+	InteractionManager.can_interact = true
+	InventoryManager.inventory_closed.disconnect(_on_closed)
+	animate_closing()
 
 func on_save_game(saved_data: Array[ObjectData]):
 	var my_data = ChestObjectData.new()

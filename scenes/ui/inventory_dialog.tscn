@@ -27,9 +27,15 @@ region = Rect2(0, 80, 16, 16)
 
 [node name="InventoryDialog" type="PanelContainer"]
 custom_minimum_size = Vector2(160, 160)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_pbung")
@@ -43,6 +49,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(2.08165e-12, 2.08165e-12)
 layout_mode = 2
 size_flags_horizontal = 3

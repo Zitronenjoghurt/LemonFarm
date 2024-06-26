@@ -7,18 +7,28 @@
 [node name="UIRoot" type="CanvasLayer"]
 script = ExtResource("1_lqerw")
 
-[node name="InventoryDialog" parent="." instance=ExtResource("2_tt5jv")]
-unique_name_in_owner = true
-visible = false
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -43.5
-offset_top = -13.5
-offset_right = 43.5
-offset_bottom = 13.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryDialog1" parent="HBoxContainer" instance=ExtResource("2_tt5jv")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="InventoryDialog2" parent="HBoxContainer" instance=ExtResource("2_tt5jv")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
 
 [node name="PauseDialog" parent="." instance=ExtResource("3_daxs4")]
 unique_name_in_owner = true
