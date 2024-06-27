@@ -16,7 +16,7 @@ I plan there to be a first playable prototype someday in July 2024 (maybe).
 ![Home](preview/house.png)
 
 ## Inventory
-![Inventory](preview/inventory.png)
+![Inventory](preview/inventory2.png)
 
 ## Pause
 ![Pause](preview/pause.png)
