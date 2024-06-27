@@ -1,0 +1,157 @@
+[gd_scene load_steps=18 format=3 uid="uid://dbltbkrqd5sjt"]
+
+[ext_resource type="Texture2D" uid="uid://c5me3safe12f" path="res://assets/decoration/door animation sprites.png" id="1_6nw2w"]
+[ext_resource type="Script" path="res://scripts/world_objects/door.gd" id="1_ojqws"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vc07"]
+atlas = ExtResource("1_6nw2w")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n15bj"]
+atlas = ExtResource("1_6nw2w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_torgp"]
+atlas = ExtResource("1_6nw2w")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fsbq"]
+atlas = ExtResource("1_6nw2w")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i64h1"]
+atlas = ExtResource("1_6nw2w")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm8qy"]
+atlas = ExtResource("1_6nw2w")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxas3"]
+atlas = ExtResource("1_6nw2w")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwrdg"]
+atlas = ExtResource("1_6nw2w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2si0"]
+atlas = ExtResource("1_6nw2w")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1rr4"]
+atlas = ExtResource("1_6nw2w")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwymf"]
+atlas = ExtResource("1_6nw2w")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbdn7"]
+atlas = ExtResource("1_6nw2w")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfuic"]
+atlas = ExtResource("1_6nw2w")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gd0n"]
+atlas = ExtResource("1_6nw2w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_47ts2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vc07")
+}],
+"loop": false,
+"name": &"closed",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n15bj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_torgp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fsbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i64h1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm8qy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxas3")
+}],
+"loop": false,
+"name": &"closing",
+"speed": 36.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwrdg")
+}],
+"loop": false,
+"name": &"open",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2si0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1rr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwymf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbdn7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfuic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gd0n")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 36.0
+}]
+
+[node name="Door" type="StaticBody2D"]
+position = Vector2(0, -10)
+script = ExtResource("1_ojqws")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_47ts2")
+animation = &"closing"
+frame = 3
+
+[node name="Collision1" type="CollisionPolygon2D" parent="."]
+z_index = 1
+position = Vector2(0, -8)
+polygon = PackedVector2Array(5, 3, 5, 8, 8, 8, 8, 3)
+
+[node name="Collision2" type="CollisionPolygon2D" parent="."]
+z_index = 1
+position = Vector2(-13, -8)
+polygon = PackedVector2Array(5, 3, 5, 8, 8, 8, 8, 3)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -8)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-10, -7, -8, -1, -8, 8, -17, 16, 18, 16, 8, 8, 8, -1, 10, -7)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

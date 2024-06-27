@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c5isj7gqvclgg"]
+[gd_scene load_steps=20 format=3 uid="uid://c5isj7gqvclgg"]
 
 [ext_resource type="Script" path="res://scripts/location.gd" id="1_esdv2"]
 [ext_resource type="PackedScene" uid="uid://b58f3rhrc0yg4" path="res://scenes/player.tscn" id="1_hyasa"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://btgqd6nl16ymp" path="res://scenes/world_objects/home_roof.tscn" id="14_rgfeg"]
 [ext_resource type="PackedScene" uid="uid://icibteq2vg73" path="res://scenes/world_objects/chest.tscn" id="15_htyf5"]
 [ext_resource type="PackedScene" uid="uid://s2323lf5cvwl" path="res://scenes/zones/fade_area.tscn" id="15_qimt3"]
+[ext_resource type="PackedScene" uid="uid://dbltbkrqd5sjt" path="res://scenes/world_objects/door.tscn" id="16_o0i4q"]
 [ext_resource type="PackedScene" uid="uid://bh3stvlmf6v77" path="res://scenes/zones/hide_area.tscn" id="16_tc5w8"]
 [ext_resource type="PackedScene" uid="uid://xrf7obfwkyrd" path="res://scenes/world_objects/home_bed.tscn" id="17_mt35w"]
 [ext_resource type="PackedScene" uid="uid://bcc1ur52mqvws" path="res://scenes/interaction/InteractionArea.tscn" id="18_1vgxq"]
@@ -32,6 +33,8 @@ script = ExtResource("1_esdv2")
 [node name="Player" parent="." instance=ExtResource("1_hyasa")]
 unique_name_in_owner = true
 position = Vector2(88, -35)
+motion_mode = 1
+wall_min_slide_angle = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -110,16 +113,22 @@ position = Vector2(24, -13.5)
 shape = SubResource("RectangleShape2D_ml6ee")
 
 [node name="HomeBed" parent="TileMap" instance=ExtResource("17_mt35w")]
-position = Vector2(39, -47)
+position = Vector2(39, -64)
 
 [node name="InteractionArea" parent="TileMap/HomeBed" instance=ExtResource("18_1vgxq")]
 action_name = "sleep"
-x_offset = -19
-y_offset = 2
+x_offset = -22
+y_offset = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/HomeBed/InteractionArea"]
-position = Vector2(10, -10)
+position = Vector2(10, 6)
 shape = SubResource("RectangleShape2D_ip4gp")
+
+[node name="Door" parent="TileMap" instance=ExtResource("16_o0i4q")]
+position = Vector2(88, 16)
+
+[node name="Chest" parent="TileMap" instance=ExtResource("15_htyf5")]
+position = Vector2(136, -56)
 
 [node name="Teleporter_0" parent="." instance=ExtResource("9_2gmg0")]
 position = Vector2(585, 448)
@@ -170,8 +179,5 @@ item = ExtResource("12_lmsb0")
 [node name="DroppedItem9" parent="." instance=ExtResource("12_dclgw")]
 position = Vector2(54, 121)
 item = ExtResource("12_lmsb0")
-
-[node name="Chest" parent="." instance=ExtResource("15_htyf5")]
-position = Vector2(136, -52)
 
 [editable path="Teleporter_0"]
