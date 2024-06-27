@@ -26,7 +26,6 @@ atlas = ExtResource("1_ssjos")
 region = Rect2(0, 80, 16, 16)
 
 [node name="InventoryDialog" type="PanelContainer"]
-custom_minimum_size = Vector2(160, 160)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

@@ -8,7 +8,9 @@ extends Resource
 # If slot_index is -1, a free slot has to be found
 # Returns true if item was successfully added, false if not
 func add_item(item: Item, amount: int = 1, slot_index: int = -1) -> bool:
-	var index = _slot_id.find_key(item.id)
+	var index = slot_index
+	if index == -1:
+		index = _slot_id.find_key(item.id)
 	if index == null:
 		index = next_free_index()
 	if index == -1:
@@ -74,6 +76,13 @@ func remove_item_at_slot(index: int, amount: int) -> bool:
 		_slot_amount[index] -= amount
 	
 	return true
+	
+func clear_slot(index: int):
+	if index not in _slot_id:
+		return
+	
+	_slot_id.erase(index)
+	_slot_amount.erase(index)
 	
 func get_slot_count() -> int:
 	return _total_slot_count

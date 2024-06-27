@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5uwnifp14rb4"]
+
+[ext_resource type="Script" path="res://scripts/ui/item_in_hand.gd" id="1_36py8"]
+[ext_resource type="FontFile" uid="uid://ck3hd3gajq0mg" path="res://assets/fonts/pixelFont-1-5x4-sproutLands.ttf" id="2_62fvg"]
+
+[node name="ItemInHand" type="Sprite2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_36py8")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 3.33333
+offset_top = -12.6667
+offset_right = 11.3333
+offset_bottom = 0.333333
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("2_62fvg")
+theme_override_font_sizes/font_size = 8

@@ -12,6 +12,11 @@ signal inventory_closed()
 var inventory: Inventory = Inventory.new()
 var _inventory_id: String = "inventory"
 
+var initial_columns: int = 1
+
+func _ready():
+	initial_columns = grid_container.columns
+
 func _on_close_button_pressed():
 	inventory_closed.emit()
 
@@ -48,6 +53,14 @@ func close():
 	inventory = Inventory.new()
 	hide()
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	
+func vertical_mode():
+	if grid_container.columns < 2:
+		return
+	grid_container.columns = int(initial_columns / 2)
+
+func horizontal_mode():
+	grid_container.columns = initial_columns
 
 func _on_slot_clicked(index: int, click_type: Enums.MouseClickType):
 	inventory_slot_clicked.emit(_inventory_id, index, click_type)

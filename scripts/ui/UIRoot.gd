@@ -28,7 +28,10 @@ func _unhandled_input(event):
 			
 func open_player_inventory():
 	inventory_dialog1.open(player.inventory, "Inventory", "player")
+	inventory_dialog1.horizontal_mode()
 
 func open_secondary_inventory(inventory: Inventory, inventory_name: String, inventory_id: String):
 	open_player_inventory()
 	inventory_dialog2.open(inventory, inventory_name, inventory_id)
+	inventory_dialog1.vertical_mode()
+	inventory_dialog2.vertical_mode()

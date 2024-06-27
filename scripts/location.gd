@@ -4,6 +4,8 @@ class_name Location
 @onready var player: Player = %Player
 
 func _ready():
+	add_to_group("location")
+	
 	if SaveManager.is_loading_state:
 		apply_save_state()
 		SaveManager.is_loading_state = false
