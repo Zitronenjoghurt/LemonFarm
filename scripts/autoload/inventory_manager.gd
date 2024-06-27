@@ -71,12 +71,16 @@ func _on_inventory_slot_clicked(id: String, index: int, click_type: Enums.MouseC
 			redraw = shift_click(id, index)
 		Enums.MouseClickType.RIGHT_CLICK:
 			if _item is Item:
-				redraw = put_down_item(id, index, PutDownMode.ONE)
+				var target_dialog = inventories[id] as InventoryDialog
+				var target_item = target_dialog.inventory.get_item_at_slot(index)
+				if _item == target_item:
+					redraw = pick_up_item(id, index, PickUpMode.ONE)
+				else:
+					redraw = put_down_item(id, index, PutDownMode.ONE)
 			else:
-				redraw = pick_up_item(id, index, PickUpMode.HALF)
-		Enums.MouseClickType.SHIFT_RIGHT_CLICK:
-			if not _item is Item:
 				redraw = pick_up_item(id, index, PickUpMode.ONE)
+		Enums.MouseClickType.SHIFT_RIGHT_CLICK:
+			redraw = pick_up_item(id, index, PickUpMode.HALF)
 	
 	if redraw == true:
 		redraw_inventories()
@@ -97,23 +101,30 @@ func pick_up_item(source_id: String, source_index: int, mode: PickUpMode) -> boo
 			pick_amount = full_amount
 		PickUpMode.HALF:
 			pick_amount = max(1, int(full_amount/2))
-	
-	var item_in_hand_scene = load(hand_item_scene_path)
-	var item_scene = item_in_hand_scene.instantiate() as ItemInHand
-	item_scene.display(item, pick_amount)
-	
-	var ui_root = get_tree().get_first_node_in_group("ui_root")
-	ui_root.add_child(item_scene)
+			
+	if _item == item and mode == PickUpMode.ONE:
+		_item_amount += 1
+		_current_item_scene.update_amount(_item_amount)
+	elif _item == item and mode == PickUpMode.HALF:
+		_item_amount += pick_amount
+		_current_item_scene.update_amount(_item_amount)
+	else:
+		var item_in_hand_scene = load(hand_item_scene_path)
+		var item_scene = item_in_hand_scene.instantiate() as ItemInHand
+		item_scene.display(item, pick_amount)
+		
+		var ui_root = get_tree().get_first_node_in_group("ui_root")
+		ui_root.add_child(item_scene)
+		
+		_item = item
+		_item_amount = pick_amount
+		_item_inventory_id = source_id
+		_current_item_scene = item_scene
 	
 	if pick_amount == full_amount:
 		source_dialog.inventory.clear_slot(source_index)
 	else:
 		source_dialog.inventory.remove_item_at_slot(source_index, pick_amount)
-	
-	_item = item
-	_item_amount = pick_amount
-	_item_inventory_id = source_id
-	_current_item_scene = item_scene
 	
 	return true
 	
