@@ -5,6 +5,7 @@ class_name Location
 
 func _ready():
 	add_to_group("location")
+	DayNightModulate.activate()
 	
 	if SaveManager.is_loading_state:
 		apply_save_state()

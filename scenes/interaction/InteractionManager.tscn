@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxg3yxtjq0wjt"]
+[gd_scene load_steps=4 format=3 uid="uid://cxg3yxtjq0wjt"]
 
 [ext_resource type="FontFile" uid="uid://da3upsvs18iu7" path="res://assets/fonts/pixelFont-4-7x7-sproutLands.ttf" id="1_7e5p7"]
 [ext_resource type="Script" path="res://scripts/interaction/InteractionManager.gd" id="1_87g6h"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3a8ik"]
+light_mode = 1
 
 [node name="InteractionManager" type="Node2D"]
 script = ExtResource("1_87g6h")
 
 [node name="Label" type="Label" parent="."]
 z_index = 100
+material = SubResource("CanvasItemMaterial_3a8ik")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5

@@ -26,6 +26,8 @@ TransitionScreen="*res://scenes/global/TransitionScreen.tscn"
 Global="*res://scripts/autoload/global.gd"
 SaveManager="*res://scripts/autoload/save_manager.gd"
 InventoryManager="*res://scripts/autoload/inventory_manager.gd"
+TimeManager="*res://scripts/autoload/time_manager.gd"
+DayNightModulate="*res://scenes/global/day_night_modulate.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
@@ -147,3 +149,4 @@ Pause={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+viewport/hdr_2d=true

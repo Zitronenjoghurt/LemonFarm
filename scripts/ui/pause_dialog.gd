@@ -24,6 +24,7 @@ func _on_main_menu_button_pressed():
 	close()
 	await SaveManager.save_game()
 	var main_menu = load(Global.main_menu_scene_path)
+	DayNightModulate.deactivate()
 	main_menu.instantiate()
 	get_tree().call_deferred("change_scene_to_packed", main_menu)
 	

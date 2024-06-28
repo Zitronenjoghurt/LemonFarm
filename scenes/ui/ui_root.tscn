@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bah51034w87vd"]
+[gd_scene load_steps=5 format=3 uid="uid://bah51034w87vd"]
 
 [ext_resource type="Script" path="res://scripts/ui/UIRoot.gd" id="1_lqerw"]
 [ext_resource type="PackedScene" uid="uid://ch0f3fh33a1sj" path="res://scenes/ui/inventory_dialog.tscn" id="2_tt5jv"]
 [ext_resource type="PackedScene" uid="uid://b06fmyjiuyct3" path="res://scenes/ui/pause_dialog.tscn" id="3_daxs4"]
+[ext_resource type="Script" path="res://scripts/ui/time_label.gd" id="4_pkc71"]
 
 [node name="UIRoot" type="CanvasLayer"]
 script = ExtResource("1_lqerw")
@@ -33,3 +34,13 @@ layout_mode = 2
 [node name="PauseDialog" parent="." instance=ExtResource("3_daxs4")]
 unique_name_in_owner = true
 visible = false
+
+[node name="TimeLabel" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -83.0
+offset_bottom = 23.0
+grow_horizontal = 0
+text = "Day 0 [0:0]"
+script = ExtResource("4_pkc71")

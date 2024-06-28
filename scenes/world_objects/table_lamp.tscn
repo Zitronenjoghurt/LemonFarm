@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://t72vcvbt5vct"]
+
+[ext_resource type="Texture2D" uid="uid://dgqhlojaiea0h" path="res://assets/decoration/Basic_Furniture.png" id="1_lcrlk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8biea"]
+atlas = ExtResource("1_lcrlk")
+region = Rect2(51, 16, 10, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rn2op"]
+size = Vector2(6, 3)
+
+[sub_resource type="Gradient" id="Gradient_wctqx"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.201354, 0.392555, 0.658206)
+colors = PackedColorArray(1, 1, 1, 1, 0.448712, 0.448712, 0.448712, 1, 0.219501, 0.219501, 0.219501, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g485o"]
+gradient = SubResource("Gradient_wctqx")
+width = 256
+height = 256
+use_hdr = true
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="TableLamp" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(2.08165e-12, -5.5)
+texture = SubResource("AtlasTexture_8biea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_rn2op")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1.90735e-06, -6)
+range_z_min = 0
+range_z_max = 1
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_g485o")

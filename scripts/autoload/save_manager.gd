@@ -19,6 +19,7 @@ func save_game():
 	current_state.player_position = player.global_position
 	current_state.player_direction = player.current_direction
 	current_state.player_inventory = player.inventory
+	current_state.minutes_passed = TimeManager.total_minutes_passed
 	
 	var collected_object_data: Array[ObjectData] = []
 	get_tree().call_group("saved_object", "on_save_game", collected_object_data)
@@ -54,6 +55,7 @@ func load_game(index: int):
 		return
 	
 	current_state = save_state
+	TimeManager.total_minutes_passed = current_state.minutes_passed
 	
 	var new_scene = load(scene_path)
 	new_scene.instantiate()

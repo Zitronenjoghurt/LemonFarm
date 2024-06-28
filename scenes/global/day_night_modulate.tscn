@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1vl6jn6pcw7s"]
+
+[ext_resource type="Script" path="res://scenes/global/day_night_modulate.gd" id="1_3mets"]
+[ext_resource type="Texture2D" uid="uid://c4tkpa8idv64l" path="res://resources/color/day_night_regular.tres" id="2_es43b"]
+
+[node name="DayNightModulate" type="CanvasModulate"]
+script = ExtResource("1_3mets")
+gradient_color = ExtResource("2_es43b")

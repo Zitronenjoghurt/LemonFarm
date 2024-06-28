@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c5isj7gqvclgg"]
+[gd_scene load_steps=21 format=3 uid="uid://c5isj7gqvclgg"]
 
 [ext_resource type="Script" path="res://scripts/location.gd" id="1_esdv2"]
 [ext_resource type="PackedScene" uid="uid://b58f3rhrc0yg4" path="res://scenes/player.tscn" id="1_hyasa"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dbltbkrqd5sjt" path="res://scenes/world_objects/door.tscn" id="16_o0i4q"]
 [ext_resource type="PackedScene" uid="uid://bh3stvlmf6v77" path="res://scenes/zones/hide_area.tscn" id="16_tc5w8"]
 [ext_resource type="PackedScene" uid="uid://xrf7obfwkyrd" path="res://scenes/world_objects/home_bed.tscn" id="17_mt35w"]
+[ext_resource type="PackedScene" uid="uid://t72vcvbt5vct" path="res://scenes/world_objects/table_lamp.tscn" id="17_xfn2n"]
 [ext_resource type="PackedScene" uid="uid://bcc1ur52mqvws" path="res://scenes/interaction/InteractionArea.tscn" id="18_1vgxq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8q0hm"]
@@ -89,7 +90,6 @@ layer_10/tile_data = PackedInt32Array()
 
 [node name="home_roof" parent="TileMap" instance=ExtResource("14_rgfeg")]
 visible = false
-z_index = 2
 position = Vector2(64, -12)
 
 [node name="fade_area" parent="TileMap/home_roof" instance=ExtResource("15_qimt3")]
@@ -179,5 +179,8 @@ item = ExtResource("12_lmsb0")
 [node name="DroppedItem9" parent="." instance=ExtResource("12_dclgw")]
 position = Vector2(54, 121)
 item = ExtResource("12_lmsb0")
+
+[node name="TableLamp" parent="." instance=ExtResource("17_xfn2n")]
+position = Vector2(116, -31)
 
 [editable path="Teleporter_0"]
