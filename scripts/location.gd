@@ -1,10 +1,18 @@
 extends Node2D
 class_name Location
 
+@export var ground_layer: int = 1
+@export var soil_layer: int = 4
+
 @onready var player: Player = %Player
+@onready var tile_map: TileMap = %TileMap
+
+var soil_tiles: Array = []
+const SOIL_TERRAIN_SET: int = 3
 
 func _ready():
 	add_to_group("location")
+	tile_map.add_to_group("tile_map")
 	DayNightModulate.activate()
 	
 	if SaveManager.is_loading_state:
@@ -24,6 +32,19 @@ func apply_save_state():
 	var state = SaveManager.current_state as SaveGame
 	player.global_position = state.player_position
 	player.current_direction = state.player_direction
+	
+	if name in state.tilled_tiles_by_location:
+		soil_tiles = state.tilled_tiles_by_location[name]
+		update_soil_tiles()
+	
+func place_soil_tile(coords: Vector2i):
+	if coords in soil_tiles:
+		return
+	soil_tiles.append(coords)
+	update_soil_tiles()
+	
+func update_soil_tiles():
+	%TileMap.set_cells_terrain_connect(soil_layer, soil_tiles, SOIL_TERRAIN_SET, 0)
 
 func load_saved_objects():
 	var state = SaveManager.current_state as SaveGame

@@ -19,7 +19,13 @@ func save_game():
 	current_state.player_position = player.global_position
 	current_state.player_direction = player.current_direction
 	current_state.player_inventory = player.inventory
+	
 	current_state.minutes_passed = TimeManager.total_minutes_passed
+	current_state.seconds_played = TimeManager.total_realtime_seconds_passed
+	
+	var location = get_tree().get_first_node_in_group("location")
+	if location is Location:
+		current_state.tilled_tiles_by_location[location.name] = location.soil_tiles
 	
 	var collected_object_data: Array[ObjectData] = []
 	get_tree().call_group("saved_object", "on_save_game", collected_object_data)
@@ -56,6 +62,7 @@ func load_game(index: int):
 	
 	current_state = save_state
 	TimeManager.total_minutes_passed = current_state.minutes_passed
+	TimeManager.total_realtime_seconds_passed = current_state.seconds_played
 	
 	var new_scene = load(scene_path)
 	new_scene.instantiate()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bah51034w87vd"]
+[gd_scene load_steps=6 format=3 uid="uid://bah51034w87vd"]
 
 [ext_resource type="Script" path="res://scripts/ui/UIRoot.gd" id="1_lqerw"]
 [ext_resource type="PackedScene" uid="uid://ch0f3fh33a1sj" path="res://scenes/ui/inventory_dialog.tscn" id="2_tt5jv"]
 [ext_resource type="PackedScene" uid="uid://b06fmyjiuyct3" path="res://scenes/ui/pause_dialog.tscn" id="3_daxs4"]
 [ext_resource type="Script" path="res://scripts/ui/time_label.gd" id="4_pkc71"]
+[ext_resource type="PackedScene" uid="uid://bvcawccsbiwk" path="res://scenes/ui/lou_avatar.tscn" id="5_h3nfm"]
 
 [node name="UIRoot" type="CanvasLayer"]
 script = ExtResource("1_lqerw")
@@ -44,3 +45,11 @@ offset_bottom = 23.0
 grow_horizontal = 0
 text = "Day 0 [0:0]"
 script = ExtResource("4_pkc71")
+
+[node name="LouAvatar" parent="." instance=ExtResource("5_h3nfm")]
+visible = false
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 69.0
+offset_bottom = 69.0
+scale = Vector2(1.5, 1.5)

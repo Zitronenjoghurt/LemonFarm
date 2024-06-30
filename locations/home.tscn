@@ -55,6 +55,7 @@ drag_right_margin = 0.05
 drag_bottom_margin = 0.05
 
 [node name="TileMap" type="TileMap" parent="."]
+unique_name_in_owner = true
 y_sort_enabled = true
 tile_set = ExtResource("2_v8bvp")
 format = 2
@@ -181,6 +182,6 @@ position = Vector2(54, 121)
 item = ExtResource("12_lmsb0")
 
 [node name="TableLamp" parent="." instance=ExtResource("17_xfn2n")]
-position = Vector2(116, -31)
+position = Vector2(119, -58)
 
 [editable path="Teleporter_0"]

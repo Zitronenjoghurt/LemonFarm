@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cbkcn85jwrp6u"]
+[gd_scene load_steps=15 format=3 uid="uid://cbkcn85jwrp6u"]
 
 [ext_resource type="Texture2D" uid="uid://feo0gbc86svu" path="res://assets/ui/Square Buttons 26x26.png" id="1_of163"]
 [ext_resource type="Script" path="res://scripts/ui/save_file_item.gd" id="2_8l058"]
@@ -9,6 +9,9 @@
 [ext_resource type="StyleBox" uid="uid://bnrwh5b7ho4sc" path="res://resources/ui/buttons/plus_normal.tres" id="4_qm8jo"]
 [ext_resource type="StyleBox" uid="uid://bjxbqg5w7gwor" path="res://resources/ui/buttons/plus_hover.tres" id="5_vjow8"]
 [ext_resource type="StyleBox" uid="uid://mme51fddw8qr" path="res://resources/ui/buttons/plus_clicked.tres" id="6_pmmek"]
+[ext_resource type="StyleBox" uid="uid://jhtrl0qwrw3k" path="res://resources/ui/buttons/delete_normal.tres" id="10_7vpjc"]
+[ext_resource type="StyleBox" uid="uid://jad2ntgfyjb2" path="res://resources/ui/buttons/delete_hover.tres" id="11_76vhs"]
+[ext_resource type="StyleBox" uid="uid://cg6eqwijkfgmk" path="res://resources/ui/buttons/delete_clicked.tres" id="12_vab4v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7xnr"]
 atlas = ExtResource("1_of163")
@@ -85,6 +88,24 @@ theme_override_constants/icon_max_width = 0
 theme_override_styles/normal = ExtResource("4_qm8jo")
 theme_override_styles/hover = ExtResource("5_vjow8")
 theme_override_styles/pressed = ExtResource("6_pmmek")
+action_mode = 0
+
+[node name="DeleteButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/h_separation = 0
+theme_override_constants/icon_max_width = 0
+theme_override_styles/normal = ExtResource("10_7vpjc")
+theme_override_styles/hover = ExtResource("11_76vhs")
+theme_override_styles/pressed = ExtResource("12_vab4v")
 action_mode = 0
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]

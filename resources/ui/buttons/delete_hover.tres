@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://jad2ntgfyjb2"]
+
+[ext_resource type="Texture2D" uid="uid://dn5yisgvrwb15" path="res://assets/ui/Icon Buttons Spritesheet.png" id="1_klftr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gi6yo"]
+atlas = ExtResource("1_klftr")
+region = Rect2(5, 356, 22, 24)
+
+[resource]
+texture = SubResource("AtlasTexture_gi6yo")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(0.873298, 0.873298, 0.873298, 1)
