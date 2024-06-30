@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://t72vcvbt5vct" path="res://scenes/world_objects/table_lamp.tscn" id="17_xfn2n"]
 [ext_resource type="PackedScene" uid="uid://bcc1ur52mqvws" path="res://scenes/interaction/InteractionArea.tscn" id="18_1vgxq"]
 [ext_resource type="PackedScene" uid="uid://c4owwduaprerq" path="res://plants/farming_plant.tscn" id="18_oac5r"]
-[ext_resource type="Resource" uid="uid://bxnobbyu0ks12" path="res://plants/plant_data/corn.tres" id="19_jgp8i"]
+[ext_resource type="Resource" uid="uid://bxnobbyu0ks12" path="res://plants/plant_data/corn_plant.tres" id="19_jgp8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8q0hm"]
 size = Vector2(11, 10.75)

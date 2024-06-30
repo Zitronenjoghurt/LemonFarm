@@ -1,16 +1,18 @@
-[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://bcclmff6ua4sq"]
+[gd_resource type="Resource" script_class="PlantSeedItem" load_steps=6 format=3 uid="uid://bcclmff6ua4sq"]
 
+[ext_resource type="Script" path="res://inventory/item_variations/plant_seed_item.gd" id="1_6pklq"]
 [ext_resource type="Texture2D" uid="uid://c4vdhwxyek8bt" path="res://assets/items/basic_items.png" id="1_6umfp"]
-[ext_resource type="Script" path="res://inventory/item.gd" id="1_qiqcf"]
+[ext_resource type="Resource" uid="uid://bxnobbyu0ks12" path="res://plants/plant_data/corn_plant.tres" id="1_wyv45"]
 [ext_resource type="PackedScene" uid="uid://c26f5lxu03cun" path="res://inventory/item_scenes/corn_seed_dropped.tscn" id="1_x8n72"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vgo84"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfa0b"]
 atlas = ExtResource("1_6umfp")
 region = Rect2(0, 16, 16, 16)
 
 [resource]
-script = ExtResource("1_qiqcf")
+script = ExtResource("1_6pklq")
+plant = ExtResource("1_wyv45")
 id = "corn_seed"
 name = "Corn Seeds"
-icon = SubResource("AtlasTexture_vgo84")
+icon = SubResource("AtlasTexture_dfa0b")
 dropped_scene = ExtResource("1_x8n72")

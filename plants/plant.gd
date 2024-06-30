@@ -5,7 +5,6 @@ extends Resource
 @export var id: String
 @export var name: String
 @export var grow_time_per_stage: float # in in-game minutes
-@export var seed_item: Item
 @export var product_item: Item
 @export var growth_stages: Array[Texture2D]
 @export var tall_stages: Array[int] = []
