@@ -5,7 +5,7 @@ var _running: bool = false
 
 func _process(delta):
 	if _running:
-		color = gradient_color.gradient.sample(TimeManager.get_light_level())
+		color = gradient_color.gradient.sample(TimeManager.current_light_level)
 
 func activate():
 	_running = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c5isj7gqvclgg"]
+[gd_scene load_steps=23 format=3 uid="uid://c5isj7gqvclgg"]
 
 [ext_resource type="Script" path="res://scripts/location.gd" id="1_esdv2"]
 [ext_resource type="PackedScene" uid="uid://b58f3rhrc0yg4" path="res://scenes/player.tscn" id="1_hyasa"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://xrf7obfwkyrd" path="res://scenes/world_objects/home_bed.tscn" id="17_mt35w"]
 [ext_resource type="PackedScene" uid="uid://t72vcvbt5vct" path="res://scenes/world_objects/table_lamp.tscn" id="17_xfn2n"]
 [ext_resource type="PackedScene" uid="uid://bcc1ur52mqvws" path="res://scenes/interaction/InteractionArea.tscn" id="18_1vgxq"]
+[ext_resource type="PackedScene" uid="uid://c4owwduaprerq" path="res://plants/farming_plant.tscn" id="18_oac5r"]
+[ext_resource type="Resource" uid="uid://bxnobbyu0ks12" path="res://plants/plant_data/corn.tres" id="19_jgp8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8q0hm"]
 size = Vector2(11, 10.75)
@@ -68,7 +70,7 @@ layer_2/tile_data = PackedInt32Array(1834992, 65536, 2, 1834993, 65536, 2, 17694
 layer_3/name = "Grass_Patches2"
 layer_3/tile_data = PackedInt32Array(1834986, 3, 0, 1834987, 131075, 0, 1900523, 589827, 0, 1900522, 3, 2, 1966059, 3, 1, 1507306, 65539, 2, 1441770, 393219, 2, 1441769, 3, 0, 1507305, 3, 2, 1507307, 131075, 2, 1441771, 131075, 1, 1376235, 458755, 2, 1310699, 262147, 0, 1310700, 131075, 3, 1376234, 3, 0, 1900524, 65539, 0, 1966060, 131075, 5, 2031596, 65539, 2, 2031597, 65539, 2, 2031598, 131075, 2, 1966062, 131075, 0, 1900525, 131075, 0, 1966061, 327683, 2, 2031595, 3, 2, 1245156, 65539, 0, 1245155, 3, 0, 1310691, 3, 1, 1376227, 3, 2, 1376228, 131075, 2, 1310692, 327683, 1, 1310693, 131075, 2, 1245157, 131075, 0)
 layer_4/name = "Tilled_Soil"
-layer_4/tile_data = PackedInt32Array(-65527, 131082, 3, -65528, 10, 3, -327672, 65543, 1)
+layer_4/tile_data = PackedInt32Array(-65527, 131082, 3, -65528, 10, 3, -327672, 65543, 1, 131069, 196622, 3)
 layer_5/name = "Decoration"
 layer_5/tile_data = PackedInt32Array(786441, 4, 2, 65521, 196614, 0, 65522, 196614, 0, 65523, 196614, 0, 65524, 196614, 0, 65525, 196614, 0, 65526, 196614, 1, 65520, 196614, 0, 65527, 262150, 0, 65519, 196614, 0, 65518, 196614, 0, 65517, 131078, 0, -458752, 6, 2, -524288, 6, 1, -589824, 6, 1, -655360, 6, 1, -720896, 6, 1, -786432, 6, 1, -851968, 6, 1, -917504, 6, 1, -983040, 6, 1, -1048576, 6, 1, -1114112, 6, 1, -1179648, 6, 1, -1245184, 6, 0, 655334, 6, 0, 720870, 6, 1, 786406, 6, 1, 851942, 6, 1, 917478, 6, 1, 983014, 6, 1, 1048550, 6, 1, 1114086, 6, 2, 1769450, 65541, 2, 1441772, 65541, 268435458, 1638390, 65541, 2, 1703911, 5, 2, 1966063, 5, 268435458, 1245159, 5, 268435458, 1834989, 262149, 1, 1507317, 327685, 1, 2031589, 6, 0, 2097125, 6, 1, 2162661, 6, 1, 2228197, 6, 1, 2293733, 6, 1, 2359269, 6, 1, 2424805, 6, 1, 1769472, 458764, 0, 1900540, 458764, 268435456, 1703933, 458764, 0, 1703934, 393228, 0, 1638399, 393228, 0, 1376253, 393228, 0, 1507327, 655372, 0, 1441792, 720908, 0, 1703935, 589836, 0, 1900542, 524300, 0, 1376258, 524300, 268435456, 1441790, 589836, 268435456, 1769474, 655372, 268435456, 1835004, 655372, 268435456, 1638404, 720908, 268435456, 1835010, 131084, 0, 1638402, 65548, 0, 2162684, 262156, 0, 2162685, 327692, 0, 1179647, 262156, 0, 1114112, 327692, 0, 1114090, 262156, 0, 1114091, 327692, 0, 1048544, 262156, 268435456, 1048543, 327692, 268435456, 1638367, 196620, 0, 2031584, 131084, 0)
 layer_6/name = "Structure_Floor"
@@ -183,5 +185,9 @@ item = ExtResource("12_lmsb0")
 
 [node name="TableLamp" parent="." instance=ExtResource("17_xfn2n")]
 position = Vector2(119, -58)
+
+[node name="FarmingPlant" parent="." instance=ExtResource("18_oac5r")]
+position = Vector2(-40, 24)
+plant = ExtResource("19_jgp8i")
 
 [editable path="Teleporter_0"]

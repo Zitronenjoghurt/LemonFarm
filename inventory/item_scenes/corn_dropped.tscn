@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgo3iji1vc353"]
+
+[ext_resource type="Texture2D" uid="uid://fqhwpuhhgjlu" path="res://assets/items/basic_items_wo_outline.png" id="1_onv2u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a74cc"]
+atlas = ExtResource("1_onv2u")
+region = Rect2(16, 16, 16, 16)
+
+[node name="CornDropped" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_a74cc")

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://cjmo8jnw8btmw"]
+
+[ext_resource type="PackedScene" uid="uid://bgo3iji1vc353" path="res://inventory/item_scenes/corn_dropped.tscn" id="1_4lifh"]
+[ext_resource type="Script" path="res://inventory/item.gd" id="1_apslk"]
+[ext_resource type="Texture2D" uid="uid://c4vdhwxyek8bt" path="res://assets/items/basic_items.png" id="1_bos87"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmapf"]
+atlas = ExtResource("1_bos87")
+region = Rect2(16, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_apslk")
+id = "corn"
+name = "Corn"
+icon = SubResource("AtlasTexture_cmapf")
+dropped_scene = ExtResource("1_4lifh")

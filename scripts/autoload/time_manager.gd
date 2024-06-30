@@ -12,6 +12,8 @@ var _delta_cum: float = 0 # Cumulative delta time
 var _delta_cum_relatime: float = 0 # Cumulative delta time but its not affected by the timescale
 var _minutes_passed: int = 0
 
+var current_light_level: float = 0
+
 signal tick_minute(day: int, hour: int, minute: int) # Ticks every in-game minute
 signal tick_hour(day: int, hour: int, minute: int) # Ticks every in-game hour
 
@@ -37,6 +39,8 @@ func process_minute():
 	while _minutes_passed >= minutes_per_hour:
 		_minutes_passed -= minutes_per_hour
 		process_hour(time)
+	
+	current_light_level = get_light_level()
 		
 func process_hour(time: Array):
 	tick_hour.emit(time[0], time[1], time[2])

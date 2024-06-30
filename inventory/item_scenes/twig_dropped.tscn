@@ -6,7 +6,7 @@
 atlas = ExtResource("1_om623")
 region = Rect2(32, 32, 16, 16)
 
-[node name="WoodDropped" type="Node2D"]
+[node name="TwigDropped" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_a74cc")

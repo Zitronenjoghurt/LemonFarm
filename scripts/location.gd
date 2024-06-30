@@ -16,7 +16,7 @@ func _ready():
 	DayNightModulate.activate()
 	
 	if SaveManager.is_loading_state:
-		apply_save_state()
+		spawn_player_from_save_state()
 		SaveManager.is_loading_state = false
 	
 	if LocationManager.destination_teleporter_id != null:
@@ -24,19 +24,25 @@ func _ready():
 		LocationManager.destination_teleporter_id = null
 		
 	load_saved_objects()
+	load_soil_tiles()
 
-func apply_save_state():
+func spawn_player_from_save_state():
 	if not SaveManager.current_state is SaveGame:
 		return
 	
 	var state = SaveManager.current_state as SaveGame
 	player.global_position = state.player_position
 	player.current_direction = state.player_direction
+
+func load_soil_tiles():
+	var state = SaveManager.current_state as SaveGame
 	
-	if name in state.tilled_tiles_by_location:
-		soil_tiles = state.tilled_tiles_by_location[name]
-		update_soil_tiles()
+	if not name in state.tilled_tiles_by_location:
+		return
 	
+	soil_tiles = state.tilled_tiles_by_location[name]
+	update_soil_tiles()
+
 func place_soil_tile(coords: Vector2i):
 	if coords in soil_tiles:
 		return
