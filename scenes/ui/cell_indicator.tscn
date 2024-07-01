@@ -1,15 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbsd5jykya037"]
+[gd_scene load_steps=5 format=3 uid="uid://cbsd5jykya037"]
 
 [ext_resource type="Texture2D" uid="uid://bcw330c3q1eea" path="res://assets/ui/big_ui_sheet.png" id="1_dlds4"]
 [ext_resource type="Script" path="res://scripts/ui/cell_indicator.gd" id="2_jdaud"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_062qf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vkrud"]
 atlas = ExtResource("1_dlds4")
 region = Rect2(340, 148, 24, 25)
 
-[node name="CellIndicator" type="Sprite2D"]
-visible = false
-modulate = Color(0.890196, 0.243137, 0.231373, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hr5pv"]
+texture = SubResource("AtlasTexture_vkrud")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[node name="CellIndicator" type="Node2D"]
 top_level = true
-texture = SubResource("AtlasTexture_062qf")
 script = ExtResource("2_jdaud")
+
+[node name="Panel" type="Panel" parent="."]
+unique_name_in_owner = true
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 24.0
+offset_bottom = 24.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_hr5pv")
