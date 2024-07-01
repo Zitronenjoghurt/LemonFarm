@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbsd5jykya037"]
+
+[ext_resource type="Texture2D" uid="uid://bcw330c3q1eea" path="res://assets/ui/big_ui_sheet.png" id="1_dlds4"]
+[ext_resource type="Script" path="res://scripts/ui/cell_indicator.gd" id="2_jdaud"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_062qf"]
+atlas = ExtResource("1_dlds4")
+region = Rect2(340, 148, 24, 25)
+
+[node name="CellIndicator" type="Sprite2D"]
+visible = false
+modulate = Color(0.890196, 0.243137, 0.231373, 1)
+top_level = true
+texture = SubResource("AtlasTexture_062qf")
+script = ExtResource("2_jdaud")

@@ -1,13 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://bah51034w87vd"]
+[gd_scene load_steps=8 format=3 uid="uid://bah51034w87vd"]
 
 [ext_resource type="Script" path="res://scripts/ui/UIRoot.gd" id="1_lqerw"]
 [ext_resource type="PackedScene" uid="uid://ch0f3fh33a1sj" path="res://scenes/ui/inventory_dialog.tscn" id="2_tt5jv"]
+[ext_resource type="PackedScene" uid="uid://bhelyconbp6si" path="res://scenes/ui/hotbar.tscn" id="2_u64tm"]
 [ext_resource type="PackedScene" uid="uid://b06fmyjiuyct3" path="res://scenes/ui/pause_dialog.tscn" id="3_daxs4"]
 [ext_resource type="Script" path="res://scripts/ui/time_label.gd" id="4_pkc71"]
 [ext_resource type="PackedScene" uid="uid://bvcawccsbiwk" path="res://scenes/ui/lou_avatar.tscn" id="5_h3nfm"]
+[ext_resource type="PackedScene" uid="uid://cbsd5jykya037" path="res://scenes/ui/cell_indicator.tscn" id="7_evcys"]
 
 [node name="UIRoot" type="CanvasLayer"]
 script = ExtResource("1_lqerw")
+cell_indicator_scene = ExtResource("7_evcys")
+
+[node name="Hotbar" parent="." instance=ExtResource("2_u64tm")]
+unique_name_in_owner = true
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+offset_bottom = 12.0
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+pivot_offset = Vector2(215, 2.08165e-12)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 8

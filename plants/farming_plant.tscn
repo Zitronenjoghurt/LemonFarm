@@ -1,11 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4owwduaprerq"]
+[gd_scene load_steps=2 format=3 uid="uid://c4owwduaprerq"]
 
 [ext_resource type="Script" path="res://plants/farming_plant.gd" id="1_iiun3"]
-[ext_resource type="Texture2D" uid="uid://blkwivyoa3bqe" path="res://assets/plants/Farming Plants.png" id="2_4snja"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p1lns"]
-atlas = ExtResource("2_4snja")
-region = Rect2(48, 0, 16, 32)
 
 [node name="FarmingPlant" type="Node2D"]
 script = ExtResource("1_iiun3")
@@ -15,4 +10,3 @@ unique_name_in_owner = true
 z_index = 1
 y_sort_enabled = true
 position = Vector2(0, -14)
-texture = SubResource("AtlasTexture_p1lns")

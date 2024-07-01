@@ -12,6 +12,7 @@ func _ready():
 	TimeManager.tick_minute.connect(_on_tick_minute)
 	add_to_group("farming_plant")
 	add_to_group("saved_object")
+	update_growth_stage()
 	
 func _on_tick_minute(_day: int, _hour: int, _minute: int):
 	if TimeManager.current_light_level >= plant.min_light_level:
@@ -58,3 +59,6 @@ func on_load_game(data: ObjectData):
 	plant = farming_plant
 	age = my_data.age
 	update_growth_stage()
+
+func collect_global_position(collection: Array[Vector2]):
+	collection.append(global_position)

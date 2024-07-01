@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://mhlbm4gwcj6q"]
 
 [ext_resource type="PackedScene" uid="uid://c6wgs31w4pg50" path="res://inventory/item_scenes/plank_dropped.tscn" id="1_7yadt"]
-[ext_resource type="Script" path="res://inventory/item.gd" id="1_og61j"]
+[ext_resource type="Script" path="res://inventory/item_base_classes/item.gd" id="1_og61j"]
 [ext_resource type="Texture2D" uid="uid://c4vdhwxyek8bt" path="res://assets/items/basic_items.png" id="2_ny7ab"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ffy88"]

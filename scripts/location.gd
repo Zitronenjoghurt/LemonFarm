@@ -10,6 +10,8 @@ class_name Location
 var soil_tiles: Array = []
 const SOIL_TERRAIN_SET: int = 3
 
+var tiles_with_plant: Array[Vector2i] = []
+
 func _ready():
 	add_to_group("location")
 	tile_map.add_to_group("tile_map")
@@ -25,6 +27,7 @@ func _ready():
 		
 	load_saved_objects()
 	load_soil_tiles()
+	update_tiles_with_plant()
 
 func spawn_player_from_save_state():
 	if not SaveManager.current_state is SaveGame:
@@ -51,6 +54,16 @@ func place_soil_tile(coords: Vector2i):
 	
 func update_soil_tiles():
 	%TileMap.set_cells_terrain_connect(soil_layer, soil_tiles, SOIL_TERRAIN_SET, 0)
+	
+func update_tiles_with_plant():
+	var collected_positions: Array[Vector2] = []
+	get_tree().call_group("farming_plant", "collect_global_position", collected_positions)
+	
+	var cells: Array[Vector2i] = []
+	for coords in collected_positions:
+		cells.append(tile_map.local_to_map(coords))
+	
+	tiles_with_plant = cells
 
 func load_saved_objects():
 	var state = SaveManager.current_state as SaveGame

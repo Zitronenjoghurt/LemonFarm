@@ -12,3 +12,9 @@ func get_highest_layer_at_cell(tilemap: TileMap, cell_coords: Vector2i) -> int:
 		if tilemap.get_cell_source_id(layer, cell_coords) > -1:
 			highest_layer = layer
 	return highest_layer
+
+func get_current_location() -> Location:
+	var location = get_tree().get_first_node_in_group("location")
+	if not location is Location:
+		return null
+	return location

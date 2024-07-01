@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhelyconbp6si"]
+
+[ext_resource type="StyleBox" uid="uid://c88k4xydwlc5w" path="res://resources/ui/dialog_background.tres" id="1_xejsa"]
+[ext_resource type="Script" path="res://scripts/ui/hotbar.gd" id="2_k2oh0"]
+[ext_resource type="PackedScene" uid="uid://b2l50cit8287q" path="res://scenes/ui/hotbar_item_slot.tscn" id="3_tjs4w"]
+
+[node name="Hotbar" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(10, 10)
+theme_override_styles/panel = ExtResource("1_xejsa")
+script = ExtResource("2_k2oh0")
+item_slot_scene = ExtResource("3_tjs4w")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2

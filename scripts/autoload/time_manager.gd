@@ -19,7 +19,7 @@ signal tick_hour(day: int, hour: int, minute: int) # Ticks every in-game hour
 
 func _process(delta):
 	_delta_cum += delta * timescale
-	_delta_cum_relatime += 1
+	_delta_cum_relatime += delta
 	
 	while _delta_cum_relatime >= 1:
 		_delta_cum_relatime -= 1

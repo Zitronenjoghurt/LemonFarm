@@ -5,9 +5,22 @@ extends CanvasLayer
 @onready var inventory_dialog1: InventoryDialog = %InventoryDialog1
 @onready var inventory_dialog2: InventoryDialog = %InventoryDialog2
 @onready var pause_dialog: PauseDialog = %PauseDialog
+@onready var hot_bar: HotBar = %Hotbar
+
+@export var cell_indicator_scene: PackedScene
+var cell_indicator: CellIndicator = null
 
 func _ready():
 	add_to_group("ui_root")
+	hot_bar.update_items(player.inventory)
+	
+	# Spawn cell indicator
+	var scene = cell_indicator_scene.instantiate()
+	call_deferred("add_sibling", scene)
+	cell_indicator = scene
+	
+	player.inventory_changed.connect(_on_player_inventory_change)
+	inventory_dialog1.inventory_slot_clicked.connect(_on_player_inventory_change)
 
 func _unhandled_input(event):
 	if Global.in_dialogue:
@@ -25,7 +38,39 @@ func _unhandled_input(event):
 		else:
 			InventoryManager.on_inventory_closed()
 			pause_dialog.open()
-			
+	
+	if event.is_action_released("Hotbar_Next"):
+		hot_bar.select_next()
+	if event.is_action_released("Hotbar_Prev"):
+		hot_bar.select_prev()
+	
+	if event.is_action_released("Action"):
+		var item = hot_bar.get_selected_item()
+		if item is CursorItem:
+			var tile_map = get_tree().get_first_node_in_group("tile_map") as TileMap
+			var cell_coords = tile_map.local_to_map(tile_map.get_global_mouse_position())
+			item.use(tile_map, cell_coords)
+		
+func _process(delta):
+	var item = hot_bar.get_selected_item()
+	if item is CursorItem:
+		if not cell_indicator.visible:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		cell_indicator.show()
+		var tile_map = get_tree().get_first_node_in_group("tile_map") as TileMap
+		var mouse_pos = tile_map.get_global_mouse_position()
+		var cell_coords = tile_map.local_to_map(mouse_pos)
+		cell_indicator.place_at_cell(tile_map, cell_coords)
+		
+		if item.usable_on_cell(tile_map, cell_coords):
+			cell_indicator.green()
+		else:
+			cell_indicator.red()
+	else:
+		if cell_indicator.visible:
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+		cell_indicator.hide()
+	
 func open_player_inventory():
 	inventory_dialog1.open(player.inventory, "Inventory", "player")
 	inventory_dialog1.horizontal_mode()
@@ -35,3 +80,6 @@ func open_secondary_inventory(inventory: Inventory, inventory_name: String, inve
 	inventory_dialog2.open(inventory, inventory_name, inventory_id)
 	inventory_dialog1.vertical_mode()
 	inventory_dialog2.vertical_mode()
+
+func _on_player_inventory_change():
+	hot_bar.update_items(player.inventory)
