@@ -50,8 +50,12 @@ func _unhandled_input(event):
 		if item is CursorItem:
 			var tile_map = get_tree().get_first_node_in_group("tile_map") as TileMap
 			var cell_coords = tile_map.local_to_map(tile_map.get_global_mouse_position())
-			item.use(tile_map, cell_coords)
-		
+			var consume = item.use(tile_map, cell_coords)
+			
+			if consume:
+				player.inventory.remove_item_at_slot(hot_bar.selected_slot, 1)
+				hot_bar.update_items(player.inventory)
+			
 func _process(delta):
 	var item = hot_bar.get_selected_item()
 	if item is CursorItem:

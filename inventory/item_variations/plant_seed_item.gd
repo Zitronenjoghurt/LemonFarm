@@ -16,9 +16,9 @@ func usable_on_cell(tilemap: TileMap, cell_coords: Vector2i) -> bool:
 	var is_soil = tilemap.get_cell_source_id(location.soil_layer, cell_coords) > -1
 	return is_soil
 
-func use(tilemap: TileMap, cell_coords: Vector2i):
+func use(tilemap: TileMap, cell_coords: Vector2i) -> bool:
 	if not usable_on_cell(tilemap, cell_coords):
-		return
+		return false
 	
 	var location = Utils.get_current_location()
 	if not location is Location:
@@ -31,3 +31,4 @@ func use(tilemap: TileMap, cell_coords: Vector2i):
 	
 	location.add_child(plant_scene)
 	location.tiles_with_plant.append(cell_coords)
+	return true

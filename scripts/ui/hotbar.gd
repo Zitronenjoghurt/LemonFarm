@@ -21,8 +21,9 @@ func _ready():
 func update_items(inventory: Inventory):
 	for i in range(slot_count):
 		var item = inventory.get_item_at_slot(i)
+		var amount = inventory.get_amount_at_slot(i)
 		if item is Item:
-			slot_scenes[i].display_item(item)
+			slot_scenes[i].display_item(item, amount)
 		else:
 			slot_scenes[i].clear_item()
 

@@ -5,5 +5,6 @@ extends Item
 func usable_on_cell(tilemap: TileMap, cell_coords: Vector2i) -> bool:
 	return false
 
-func use(tilemap: TileMap, cell_coords: Vector2i):
-	return
+# Returns true if 1 item is supposed to be consumed
+func use(tilemap: TileMap, cell_coords: Vector2i) -> bool:
+	return false
