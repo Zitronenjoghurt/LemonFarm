@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4owwduaprerq"]
+[gd_scene load_steps=6 format=3 uid="uid://c4owwduaprerq"]
 
 [ext_resource type="Script" path="res://plants/farming_plant.gd" id="1_iiun3"]
+[ext_resource type="PackedScene" uid="uid://5heijiuypu1r" path="res://scenes/zones/random_drop_area.tscn" id="2_54o07"]
+[ext_resource type="PackedScene" uid="uid://bcc1ur52mqvws" path="res://scenes/interaction/InteractionArea.tscn" id="3_yv73w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qiv81"]
+radius = 22.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bo36b"]
+radius = 16.0
 
 [node name="FarmingPlant" type="Node2D"]
 script = ExtResource("1_iiun3")
@@ -9,4 +17,23 @@ script = ExtResource("1_iiun3")
 unique_name_in_owner = true
 z_index = 1
 y_sort_enabled = true
+position = Vector2(2.08165e-12, -14)
+
+[node name="RandomDropArea" parent="." instance=ExtResource("2_54o07")]
+unique_name_in_owner = true
+
+[node name="DropArea" parent="RandomDropArea" index="0"]
 position = Vector2(0, -14)
+shape = SubResource("CircleShape2D_qiv81")
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_yv73w")]
+unique_name_in_owner = true
+action_name = "harvest"
+x_offset = -20
+y_offset = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -14)
+shape = SubResource("CircleShape2D_bo36b")
+
+[editable path="RandomDropArea"]

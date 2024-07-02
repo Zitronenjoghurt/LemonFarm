@@ -33,3 +33,5 @@ product_item = ExtResource("2_d540k")
 growth_stages = Array[Texture2D]([SubResource("AtlasTexture_w4sqx"), SubResource("AtlasTexture_kyk1i"), SubResource("AtlasTexture_y1jey"), SubResource("AtlasTexture_82fhk"), SubResource("AtlasTexture_05suj")])
 tall_stages = Array[int]([3, 4])
 min_light_level = 0.33
+min_yield = 1
+max_yield = 3

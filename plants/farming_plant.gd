@@ -2,6 +2,8 @@ class_name FarmingPlant
 extends Node2D
 
 @onready var sprite: Sprite2D = %Sprite
+@onready var drop_area: RandomDropArea = %RandomDropArea
+@onready var interaction_area: InteractionArea = %InteractionArea
 @export var sprite_y_offset_normal: int = -6
 @export var sprite_y_offset_tall: int = -14
 @export var plant: Plant
@@ -10,9 +12,24 @@ var current_stage: int = -1
 
 func _ready():
 	TimeManager.tick_minute.connect(_on_tick_minute)
+	interaction_area.interact = Callable(self, "_on_interact")
 	add_to_group("farming_plant")
 	add_to_group("saved_object")
 	update_growth_stage()
+
+func set_plant(new_plant: Plant):
+	plant = new_plant
+	update_growth_stage()
+	
+	drop_area.items = [plant.product_item]
+	drop_area.item_min_count = [plant.min_yield]
+	drop_area.item_max_count = [plant.max_yield]
+	
+func _on_interact():
+	drop_area.drop()
+	get_parent().remove_child(self)
+	queue_free()
+	InteractionManager.can_interact = true
 	
 func _on_tick_minute(_day: int, _hour: int, _minute: int):
 	if TimeManager.current_light_level >= plant.min_light_level:
@@ -56,9 +73,9 @@ func on_load_game(data: ObjectData):
 		return
 	
 	global_position = my_data.position
-	plant = farming_plant
 	age = my_data.age
-	update_growth_stage()
+	
+	set_plant(farming_plant)
 
 func collect_global_position(collection: Array[Vector2]):
 	collection.append(global_position)

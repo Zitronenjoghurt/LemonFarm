@@ -9,6 +9,7 @@ radius = 3.0
 radius = 25.0
 
 [node name="DroppedItem" type="Node2D"]
+z_index = 1
 script = ExtResource("1_3yogt")
 
 [node name="CollectionArea" type="Area2D" parent="."]

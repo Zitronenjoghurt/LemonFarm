@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://5heijiuypu1r"]
+
+[ext_resource type="Script" path="res://scripts/zones/random_drop_area.gd" id="1_lod56"]
+[ext_resource type="PackedScene" uid="uid://dq0tdof34fov0" path="res://scenes/entities/dropped_item.tscn" id="2_d86t0"]
+
+[node name="RandomDropArea" type="Area2D"]
+script = ExtResource("1_lod56")
+dropped_item_scene = ExtResource("2_d86t0")
+
+[node name="DropArea" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
