@@ -15,6 +15,7 @@ texture_margin_right = 10.0
 texture_margin_bottom = 10.0
 
 [node name="CellIndicator" type="Node2D"]
+visible = false
 top_level = true
 script = ExtResource("2_jdaud")
 

@@ -1,8 +1,13 @@
-[gd_resource type="Resource" script_class="Plant" load_steps=9 format=3 uid="uid://bxnobbyu0ks12"]
+[gd_resource type="Resource" script_class="Plant" load_steps=11 format=3 uid="uid://bxnobbyu0ks12"]
 
 [ext_resource type="Texture2D" uid="uid://blkwivyoa3bqe" path="res://assets/plants/Farming Plants.png" id="1_5ailo"]
+[ext_resource type="Texture2D" uid="uid://dhf3yoof66b2a" path="res://assets/environment/planted_seeds.png" id="1_kry55"]
 [ext_resource type="Script" path="res://plants/plant.gd" id="1_ymfy3"]
 [ext_resource type="Resource" uid="uid://cjmo8jnw8btmw" path="res://inventory/item_data/corn.tres" id="2_d540k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3umm5"]
+atlas = ExtResource("1_kry55")
+region = Rect2(16, -5, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w4sqx"]
 atlas = ExtResource("1_5ailo")
@@ -30,8 +35,8 @@ id = "corn_plant"
 name = "Corn"
 grow_time_per_stage = 10.0
 product_item = ExtResource("2_d540k")
-growth_stages = Array[Texture2D]([SubResource("AtlasTexture_w4sqx"), SubResource("AtlasTexture_kyk1i"), SubResource("AtlasTexture_y1jey"), SubResource("AtlasTexture_82fhk"), SubResource("AtlasTexture_05suj")])
-tall_stages = Array[int]([3, 4])
+growth_stages = Array[Texture2D]([SubResource("AtlasTexture_3umm5"), SubResource("AtlasTexture_w4sqx"), SubResource("AtlasTexture_kyk1i"), SubResource("AtlasTexture_y1jey"), SubResource("AtlasTexture_82fhk"), SubResource("AtlasTexture_05suj")])
+tall_stages = Array[int]([4, 5])
 min_light_level = 0.33
 min_yield = 1
 max_yield = 3

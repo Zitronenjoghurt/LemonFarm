@@ -26,15 +26,29 @@ func set_plant(new_plant: Plant):
 	drop_area.item_max_count = [plant.max_yield]
 	
 func _on_interact():
+	var location = get_tree().get_first_node_in_group("location")
+	if not location is Location:
+		return
+		
+	var tile_map = get_tree().get_first_node_in_group("tile_map")
+	if not tile_map is TileMap:
+		return
+	
 	drop_area.drop()
 	get_parent().remove_child(self)
 	queue_free()
 	InteractionManager.can_interact = true
 	
+	var cell_coords = tile_map.local_to_map(global_position)
+	location.tiles_with_plant.erase(cell_coords)
+	
 func _on_tick_minute(_day: int, _hour: int, _minute: int):
 	if TimeManager.current_light_level >= plant.min_light_level:
 		age += 1
 		update_growth_stage()
+		
+		if is_fully_grown():
+			interaction_area.enable()
 	
 func update_growth_stage():
 	if not plant is Plant:
@@ -79,3 +93,9 @@ func on_load_game(data: ObjectData):
 
 func collect_global_position(collection: Array[Vector2]):
 	collection.append(global_position)
+
+func is_fully_grown() -> bool:
+	if not plant is Plant:
+		return false
+		
+	return age > len(plant.growth_stages) * plant.grow_time_per_stage

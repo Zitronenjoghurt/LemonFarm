@@ -5,8 +5,6 @@ const FD = Enums.FacingDirection
 @export var sprite: AnimatedSprite2D
 @export var player: Player
 
-@export var till_position_offset: Vector2 = Vector2.ZERO
-
 @export var till_time_sec: float = 0.475 # How many seconds you have to till so the cell gets tilled
 var _till_time_cum: float = 0 
 
@@ -50,7 +48,7 @@ func till_cell():
 	if not location is Location:
 		return
 	
-	var player_cell_coords = tile_map.local_to_map(player.global_position + till_position_offset)
+	var player_cell_coords = tile_map.local_to_map(player.global_position)
 	var target_cell_coords = get_target_cell(player_cell_coords)
 	
 	var cell_tillable = tile_map.get_cell_tile_data(location.ground_layer, target_cell_coords).get_custom_data("tillable")

@@ -191,4 +191,40 @@ position = Vector2(119, -58)
 position = Vector2(-40, 24)
 plant = ExtResource("19_jgp8i")
 
+[node name="DroppedItem10" parent="." instance=ExtResource("12_dclgw")]
+position = Vector2(65, 44)
+item = ExtResource("13_nt3uo")
+
+[node name="DroppedItem11" parent="." instance=ExtResource("12_dclgw")]
+position = Vector2(65, 44)
+item = ExtResource("13_nt3uo")
+
+[node name="DroppedItem12" parent="." instance=ExtResource("12_dclgw")]
+position = Vector2(65, 44)
+item = ExtResource("13_nt3uo")
+
+[node name="DroppedItem13" parent="." instance=ExtResource("12_dclgw")]
+position = Vector2(65, 44)
+item = ExtResource("13_nt3uo")
+
+[node name="DroppedItem14" parent="." instance=ExtResource("12_dclgw")]
+position = Vector2(65, 44)
+item = ExtResource("13_nt3uo")
+
+[node name="DroppedItem15" parent="." instance=ExtResource("12_dclgw")]
+position = Vector2(65, 44)
+item = ExtResource("13_nt3uo")
+
+[node name="DroppedItem16" parent="." instance=ExtResource("12_dclgw")]
+position = Vector2(65, 44)
+item = ExtResource("13_nt3uo")
+
+[node name="DroppedItem17" parent="." instance=ExtResource("12_dclgw")]
+position = Vector2(65, 44)
+item = ExtResource("13_nt3uo")
+
+[node name="DroppedItem18" parent="." instance=ExtResource("12_dclgw")]
+position = Vector2(65, 44)
+item = ExtResource("13_nt3uo")
+
 [editable path="Teleporter_0"]

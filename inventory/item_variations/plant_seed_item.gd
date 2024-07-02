@@ -2,8 +2,10 @@ class_name PlantSeedItem
 extends CursorItem
 
 @export var plant: Plant
+@export var random_plant_position_offset: float = 1.5
 
 const plant_scene_path = "res://plants/farming_plant.tscn"
+var RNG = RandomNumberGenerator.new()
 
 func usable_on_cell(tilemap: TileMap, cell_coords: Vector2i) -> bool:
 	var location = Utils.get_current_location()
@@ -27,7 +29,15 @@ func use(tilemap: TileMap, cell_coords: Vector2i) -> bool:
 	var scene = load(plant_scene_path)
 	var plant_scene = scene.instantiate() as FarmingPlant
 	plant_scene.plant = plant
-	plant_scene.global_position = tilemap.map_to_local(cell_coords)
+	var position = tilemap.map_to_local(cell_coords)
+	
+	# Makes the plants seem less artificial
+	var x_offset = RNG.randf_range(-random_plant_position_offset, random_plant_position_offset)
+	var y_offset = RNG.randf_range(-random_plant_position_offset, random_plant_position_offset)
+	position.x += x_offset
+	position.y += y_offset
+	
+	plant_scene.global_position = position
 	
 	location.add_child(plant_scene)
 	location.tiles_with_plant.append(cell_coords)
