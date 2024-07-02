@@ -27,3 +27,7 @@ func display_item(new_item: Item):
 		
 	item = new_item
 	icon.texture = item.icon
+
+func clear_item():
+	item = null
+	icon.texture = null

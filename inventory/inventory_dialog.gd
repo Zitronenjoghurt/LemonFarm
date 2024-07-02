@@ -8,6 +8,7 @@ extends PanelContainer
 
 signal inventory_slot_clicked(id: String, index: int)
 signal inventory_closed()
+signal inventory_updated()
 
 var inventory: Inventory = Inventory.new()
 var _inventory_id: String = "inventory"
@@ -44,7 +45,7 @@ func open(source_inventory: Inventory, title: String = "Inventory", inventory_id
 	InventoryManager.register(self, inventory_id)
 	
 	title_label.text = title
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	MouseManager.visible(MouseManager.VisibilitySource.INVENTORY)
 	
 	draw()
 	show()
@@ -52,7 +53,7 @@ func open(source_inventory: Inventory, title: String = "Inventory", inventory_id
 func close():
 	inventory = Inventory.new()
 	hide()
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	MouseManager.hidden(MouseManager.VisibilitySource.INVENTORY)
 	
 func vertical_mode():
 	if grid_container.columns < 2:
@@ -64,3 +65,4 @@ func horizontal_mode():
 
 func _on_slot_clicked(index: int, click_type: Enums.MouseClickType):
 	inventory_slot_clicked.emit(_inventory_id, index, click_type)
+	inventory_updated.emit()

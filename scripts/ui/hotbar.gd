@@ -21,10 +21,10 @@ func _ready():
 func update_items(inventory: Inventory):
 	for i in range(slot_count):
 		var item = inventory.get_item_at_slot(i)
-		if item == null:
-			continue
-		
-		slot_scenes[i].display_item(item)
+		if item is Item:
+			slot_scenes[i].display_item(item)
+		else:
+			slot_scenes[i].clear_item()
 
 func select_next():
 	select_slot(selected_slot + 1)

@@ -29,6 +29,7 @@ InventoryManager="*res://scripts/autoload/inventory_manager.gd"
 TimeManager="*res://scripts/autoload/time_manager.gd"
 DayNightModulate="*res://scenes/global/day_night_modulate.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+MouseManager="*res://scripts/autoload/mouse_manager.gd"
 
 [dialogic]
 

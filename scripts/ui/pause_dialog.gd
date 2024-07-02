@@ -5,13 +5,13 @@ func open():
 	show()
 	Global.paused = true
 	Global.player_can_move = false
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	MouseManager.visible(MouseManager.VisibilitySource.PAUSE)
 
 func close():
 	hide()
 	Global.paused = false
 	Global.player_can_move = true
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	MouseManager.hidden(MouseManager.VisibilitySource.PAUSE)
 
 func _on_continue_button_pressed():
 	close()
@@ -27,4 +27,5 @@ func _on_main_menu_button_pressed():
 	DayNightModulate.deactivate()
 	main_menu.instantiate()
 	get_tree().call_deferred("change_scene_to_packed", main_menu)
+	MouseManager.visible(MouseManager.VisibilitySource.MAIN_MENU)
 	

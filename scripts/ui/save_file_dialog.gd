@@ -7,9 +7,6 @@ extends PanelContainer
 
 const save_file_count: int = 4
 
-func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
 func open():
 	show()
 	

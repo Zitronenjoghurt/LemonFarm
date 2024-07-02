@@ -27,3 +27,4 @@ func start():
 		return
 	Global.current_save_file = file_index
 	SaveManager.load_game(file_index)
+	MouseManager.hidden(MouseManager.VisibilitySource.MAIN_MENU)

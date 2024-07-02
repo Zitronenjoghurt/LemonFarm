@@ -20,7 +20,8 @@ func _ready():
 	cell_indicator = scene
 	
 	player.inventory_changed.connect(_on_player_inventory_change)
-	inventory_dialog1.inventory_slot_clicked.connect(_on_player_inventory_change)
+	inventory_dialog1.inventory_updated.connect(_on_player_inventory_change)
+	inventory_dialog2.inventory_updated.connect(_on_player_inventory_change)
 
 func _unhandled_input(event):
 	if Global.in_dialogue:
@@ -55,7 +56,7 @@ func _process(delta):
 	var item = hot_bar.get_selected_item()
 	if item is CursorItem:
 		if not cell_indicator.visible:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			MouseManager.visible(MouseManager.VisibilitySource.CURSOR_ITEM)
 		cell_indicator.show()
 		var tile_map = get_tree().get_first_node_in_group("tile_map") as TileMap
 		var mouse_pos = tile_map.get_global_mouse_position()
@@ -68,7 +69,7 @@ func _process(delta):
 			cell_indicator.red()
 	else:
 		if cell_indicator.visible:
-			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			MouseManager.hidden(MouseManager.VisibilitySource.CURSOR_ITEM)
 		cell_indicator.hide()
 	
 func open_player_inventory():
