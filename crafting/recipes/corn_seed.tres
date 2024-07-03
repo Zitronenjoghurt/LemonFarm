@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Recipe" load_steps=4 format=3 uid="uid://5ckvptsd3p1i"]
+
+[ext_resource type="Resource" uid="uid://bcclmff6ua4sq" path="res://inventory/item_data/corn_seed.tres" id="1_k4uub"]
+[ext_resource type="Script" path="res://crafting/recipe.gd" id="1_qavn7"]
+[ext_resource type="Resource" uid="uid://cjmo8jnw8btmw" path="res://inventory/item_data/corn.tres" id="2_dkeqn"]
+
+[resource]
+script = ExtResource("1_qavn7")
+id = "corn_seed"
+name = "Corn Seeds"
+description = "Will turn corn into corn seeds."
+required_items = Array[Resource("res://inventory/item_base_classes/item.gd")]([ExtResource("2_dkeqn")])
+required_item_counts = Array[int]([1])
+product_items = Array[Resource("res://inventory/item_base_classes/item.gd")]([ExtResource("1_k4uub")])
+product_item_counts_min = Array[int]([1])
+product_item_counts_max = Array[int]([2])
