@@ -2,7 +2,13 @@ extends Node
 
 const main_menu_scene_path: String = "res://scenes/main_menu.tscn"
 
-var player_can_move: bool = true
+enum PlayerMoveBlocked {
+	DIALOGUE,
+	INVENTORY,
+	PAUSE
+}
+
+var player_move_blocked: SubscribedArray = SubscribedArray.new()
 var in_dialogue: bool = false
 var current_location: String = "home"
 var paused: bool = false

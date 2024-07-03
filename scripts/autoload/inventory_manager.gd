@@ -53,7 +53,7 @@ func open_secondary_inventory(inventory: Inventory, inventory_name: String, inve
 	var ui_root: UIRoot = get_tree().get_first_node_in_group("ui_root")
 	if not ui_root is UIRoot:
 		return
-	Global.player_can_move = false
+	Global.player_move_blocked.subscribe(Global.PlayerMoveBlocked.INVENTORY)
 	ui_root.open_secondary_inventory(inventory, inventory_name, inventory_id)
 
 func _on_inventory_slot_clicked(id: String, index: int, click_type: Enums.MouseClickType):
@@ -197,7 +197,7 @@ func on_inventory_closed():
 		dialog.inventory.add_item(_item, _item_amount)
 		clear_hand_item()
 		
-	Global.player_can_move = true
+	Global.player_move_blocked.unsubscribe(Global.PlayerMoveBlocked.INVENTORY)
 	var inventory_ids = inventories.keys()
 	for inventory_id in inventory_ids:
 		inventories[inventory_id].close()

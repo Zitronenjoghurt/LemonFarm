@@ -12,6 +12,7 @@ region = Rect2(0, 16, 16, 16)
 [resource]
 script = ExtResource("1_6pklq")
 plant = ExtResource("1_wyv45")
+random_plant_position_offset = 1.5
 id = "corn_seed"
 name = "Corn Seeds"
 icon = SubResource("AtlasTexture_dfa0b")

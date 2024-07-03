@@ -17,7 +17,7 @@ func _ready():
 	inventory = SaveManager.current_state.player_inventory
 
 func _physics_process(delta):
-	if Global.player_can_move:
+	if not Global.player_move_blocked.is_active():
 		move_and_slide()
 
 func _on_spawn(spawn_position: Vector2, direction: FD):

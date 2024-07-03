@@ -4,13 +4,13 @@ class_name PauseDialog
 func open():
 	show()
 	Global.paused = true
-	Global.player_can_move = false
+	Global.player_move_blocked.subscribe(Global.PlayerMoveBlocked.PAUSE)
 	MouseManager.visible(MouseManager.VisibilitySource.PAUSE)
 
 func close():
 	hide()
 	Global.paused = false
-	Global.player_can_move = true
+	Global.player_move_blocked.unsubscribe(Global.PlayerMoveBlocked.PAUSE)
 	MouseManager.hidden(MouseManager.VisibilitySource.PAUSE)
 
 func _on_continue_button_pressed():

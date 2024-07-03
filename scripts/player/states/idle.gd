@@ -18,7 +18,7 @@ func Enter():
 func Update(delta: float):
 	sprite.play(ANIMATIONS[player.current_direction])
 	
-	if !Global.player_can_move:
+	if Global.player_move_blocked.is_active():
 		return
 	
 	if Utils.is_direction_key_pressed():
