@@ -44,8 +44,26 @@ func _unhandled_input(event):
 		hot_bar.select_next()
 	if event.is_action_released("Hotbar_Prev"):
 		hot_bar.select_prev()
+	if event.is_action_pressed("Slot_0"):
+		hot_bar.select_slot(0)
+	if event.is_action_pressed("Slot_1"):
+		hot_bar.select_slot(1)
+	if event.is_action_pressed("Slot_2"):
+		hot_bar.select_slot(2)
+	if event.is_action_pressed("Slot_3"):
+		hot_bar.select_slot(3)
+	if event.is_action_pressed("Slot_4"):
+		hot_bar.select_slot(4)
+	if event.is_action_pressed("Slot_5"):
+		hot_bar.select_slot(5)
+	if event.is_action_pressed("Slot_6"):
+		hot_bar.select_slot(6)
+	if event.is_action_pressed("Slot_7"):
+		hot_bar.select_slot(7)
+	if event.is_action_pressed("Slot_8"):
+		hot_bar.select_slot(8)
 	
-	if event.is_action_released("Action"):
+	if event.is_action_pressed("Action"):
 		var item = hot_bar.get_selected_item()
 		if item is CursorItem:
 			var tile_map = get_tree().get_first_node_in_group("tile_map") as TileMap
