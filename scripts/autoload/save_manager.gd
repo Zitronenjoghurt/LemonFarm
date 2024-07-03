@@ -3,6 +3,8 @@ extends Node
 var is_loading_state: bool = false
 var current_state: SaveGame
 
+var deletion_scheduled: Array[int] = []
+
 func get_save_path(index: int) -> String:
 	return "user://savegame_"+ str(index) +".tres"
 
@@ -69,3 +71,15 @@ func load_game(index: int):
 	get_tree().call_deferred("change_scene_to_packed", new_scene)
 	
 	Global.current_location = save_state.last_scene_name
+
+func delete_game(index: int):
+	var save_path = get_save_path(index)
+	
+	if index not in deletion_scheduled:
+		deletion_scheduled.append(index)
+		return
+	
+	if ResourceLoader.exists(save_path):
+		DirAccess.remove_absolute(save_path)
+	
+	deletion_scheduled.erase(index)
