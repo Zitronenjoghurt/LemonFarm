@@ -12,3 +12,4 @@ const FD = Enums.FacingDirection
 @export var saved_locations: Array[String] = [] # All locations that pushed object_data at least once
 @export var object_data: Array[ObjectData] = []
 @export var tilled_tiles_by_location: Dictionary = {}
+@export var unlocked_recipes: Array[String] = []

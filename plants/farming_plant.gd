@@ -42,6 +42,8 @@ func _on_interact():
 	var cell_coords = tile_map.local_to_map(global_position)
 	location.tiles_with_plant.erase(cell_coords)
 	
+	Global.unlock_recipe(plant.unlocked_seed_recipe)
+	
 func _on_tick_minute(_day: int, _hour: int, _minute: int):
 	if TimeManager.current_light_level >= plant.min_light_level:
 		age += 1

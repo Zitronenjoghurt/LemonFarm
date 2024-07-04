@@ -5,6 +5,7 @@ extends Node
 var visible_sources: Array[int] = []
 
 enum VisibilitySource {
+	CRAFTING_MENU,
 	CURSOR_ITEM,
 	INVENTORY,
 	MAIN_MENU,

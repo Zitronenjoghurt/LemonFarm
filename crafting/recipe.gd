@@ -1,6 +1,12 @@
 class_name Recipe
 extends Resource
 
+enum Category {
+	NONE,
+	ALL,
+	PLANT
+}
+
 @export var id: String = "none"
 @export var name: String = "no_name"
 @export var description: String = "no_description"
@@ -11,6 +17,10 @@ extends Resource
 @export var product_items: Array[Item] = []
 @export var product_item_counts_min: Array[int] = []
 @export var product_item_counts_max: Array[int] = []
+
+@export var categories: Array[Category] = []
+
+const RECIPE_BASE_PATH = "res://crafting/recipes/"
 
 var RNG = RandomNumberGenerator.new()
 
@@ -41,3 +51,52 @@ func craft_for_inventory(inventory: Inventory, amount: int = 1) -> bool:
 		inventory.add_item(item, count)
 	
 	return true
+
+static func get_by_id(id: String) -> Recipe:
+	var path = RECIPE_BASE_PATH + id + ".tres"
+	if not ResourceLoader.exists(path):
+		return null
+		
+	var recipe = load(path)
+	return recipe
+	
+static func get_by_ids(ids: Array[String]) -> Array[Recipe]:
+	var recipes: Array[Recipe] = []
+	for id in ids:
+		var recipe = get_by_id(id)
+		if not recipe is Recipe:
+			continue
+		recipes.append(recipe)
+	return recipes
+
+static func get_all_ids() -> Array[String]:
+	var dir = DirAccess.open(RECIPE_BASE_PATH)
+	if not dir:
+		return []
+		
+	var names: Array[String] = []
+	
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+	while file_name:
+		if file_name != "." and file_name != ".." and !dir.current_is_dir() and file_name.ends_with(".tres"):
+			file_name = file_name.substr(0, file_name.length() - 5)
+			names.append(file_name)
+		file_name = dir.get_next()
+	dir.list_dir_end()
+	
+	return names
+
+static func map_recipes_to_categories(recipe_ids: Array[String]) -> Dictionary:
+	var mapped_recipes: Dictionary = {}
+	for id in recipe_ids:
+		var recipe = get_by_id(id)
+		if not recipe is Recipe:
+			continue
+		
+		for category in recipe.categories:
+			if category not in mapped_recipes:
+				mapped_recipes[category] = [recipe]
+			else:
+				mapped_recipes[category].append(recipe)
+	return mapped_recipes

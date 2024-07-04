@@ -11,6 +11,7 @@ extends Resource
 @export var min_light_level: float = 0
 @export var min_yield: int = 1
 @export var max_yield: int = 2
+@export var unlocked_seed_recipe: String
 
 static func get_by_id(id: String) -> Plant:
 	var path = "res://plants/plant_data/" + id + ".tres"

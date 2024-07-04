@@ -40,3 +40,4 @@ tall_stages = Array[int]([4, 5])
 min_light_level = 0.33
 min_yield = 1
 max_yield = 3
+unlocked_seed_recipe = "corn_seed"

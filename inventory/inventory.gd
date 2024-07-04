@@ -47,7 +47,7 @@ func next_free_index() -> int:
 			return i
 	return -1
 	
-func next_pushable_stack_or_free_index(item: Item, excluded_indices: Array[int]) -> int:
+func next_pushable_stack_or_free_index(item: Item, excluded_indices: Array[int] = []) -> int:
 	for i in range(_total_slot_count):
 		if i not in _slot_id or i in excluded_indices:
 			continue
@@ -148,7 +148,9 @@ func could_fit_items(items: Array[Item], amounts: Array[int]) -> bool:
 			empty_slots -= 1
 			continue
 			
+		@warning_ignore("integer_division")
 		var current_stacks = int(current_amount / _stack_size)
+		@warning_ignore("integer_division")
 		var new_stacks = int((current_amount + amount) / _stack_size)
 		
 		if current_stacks != new_stacks:

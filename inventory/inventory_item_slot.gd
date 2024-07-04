@@ -15,9 +15,16 @@ func clear():
 	texture_rect.texture = null
 	item_count.text = ""
 
-func display_item(item: Item, amount: int):
+func display_item(item: Item, amount: int = 0):
 	texture_rect.texture = item.icon
 	item_count.text = str(amount)
+	
+func display_item_without_amount(item: Item):
+	texture_rect.texture = item.icon
+	item_count.text = ""
+	
+func overwrite_amount(amount: String):
+	item_count.text = amount
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.pressed:

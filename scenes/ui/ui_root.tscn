@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bah51034w87vd"]
+[gd_scene load_steps=9 format=3 uid="uid://bah51034w87vd"]
 
 [ext_resource type="Script" path="res://scripts/ui/UIRoot.gd" id="1_lqerw"]
 [ext_resource type="PackedScene" uid="uid://ch0f3fh33a1sj" path="res://scenes/ui/inventory_dialog.tscn" id="2_tt5jv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/ui/time_label.gd" id="4_pkc71"]
 [ext_resource type="PackedScene" uid="uid://bvcawccsbiwk" path="res://scenes/ui/lou_avatar.tscn" id="5_h3nfm"]
 [ext_resource type="PackedScene" uid="uid://cbsd5jykya037" path="res://scenes/ui/cell_indicator.tscn" id="7_evcys"]
+[ext_resource type="PackedScene" uid="uid://cfuap8fs16tmd" path="res://scenes/ui/crafting_menu.tscn" id="8_wm6s0"]
 
 [node name="UIRoot" type="CanvasLayer"]
 script = ExtResource("1_lqerw")
@@ -67,3 +68,6 @@ offset_top = 5.0
 offset_right = 69.0
 offset_bottom = 69.0
 scale = Vector2(1.5, 1.5)
+
+[node name="CraftingMenu" parent="." instance=ExtResource("8_wm6s0")]
+visible = false

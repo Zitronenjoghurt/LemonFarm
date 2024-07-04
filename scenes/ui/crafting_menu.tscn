@@ -1,0 +1,201 @@
+[gd_scene load_steps=12 format=3 uid="uid://cfuap8fs16tmd"]
+
+[ext_resource type="StyleBox" uid="uid://c88k4xydwlc5w" path="res://resources/ui/dialog_background.tres" id="1_jr0tg"]
+[ext_resource type="PackedScene" uid="uid://c3fum4gxs5rkr" path="res://scenes/ui/regular_button.tscn" id="2_gmwsg"]
+[ext_resource type="Script" path="res://scripts/ui/crafting_menu.gd" id="2_lpvwl"]
+[ext_resource type="PackedScene" uid="uid://cdgccwp42thel" path="res://inventory/inventory_item_slot.tscn" id="3_rdpnv"]
+[ext_resource type="Texture2D" uid="uid://dtfooxn7j7oyq" path="res://assets/ui/menu.png" id="4_m2jl1"]
+[ext_resource type="FontFile" uid="uid://da3upsvs18iu7" path="res://assets/fonts/pixelFont-4-7x7-sproutLands.ttf" id="5_1taod"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8gbm"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.317647, 0.317647, 0.317647, 0.184314)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_bottom = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahcbi"]
+atlas = ExtResource("4_m2jl1")
+region = Rect2(139, 12, 106, 122)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7yrak"]
+texture = SubResource("AtlasTexture_ahcbi")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_riox7"]
+color = Color(0.678431, 0.447059, 0.32549, 0.705882)
+grow_begin = -10.0
+grow_end = -10.0
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ntnxj"]
+color = Color(0.678431, 0.447059, 0.32549, 0.705882)
+vertical = true
+
+[node name="CraftingMenu" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_jr0tg")
+script = ExtResource("2_lpvwl")
+item_slot = ExtResource("3_rdpnv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="CategoryTabs" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AllButton" parent="VBoxContainer/CategoryTabs" instance=ExtResource("2_gmwsg")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "All"
+
+[node name="PlantsButton" parent="VBoxContainer/CategoryTabs" instance=ExtResource("2_gmwsg")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Plants"
+
+[node name="RecipeSelection" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(225, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_q8gbm")
+
+[node name="RecipeGridContainer" type="GridContainer" parent="VBoxContainer/RecipeSelection"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 6
+
+[node name="RecipeInformation" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7yrak")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/RecipeInformation"]
+layout_mode = 2
+
+[node name="RecipeTitle" type="Label" parent="VBoxContainer/RecipeInformation/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("5_1taod")
+theme_override_font_sizes/font_size = 8
+
+[node name="RecipeDescription" type="Label" parent="VBoxContainer/RecipeInformation/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 2.08165e-12)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("5_1taod")
+theme_override_font_sizes/font_size = 6
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/RecipeInformation/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_riox7")
+
+[node name="RecipeItemsContainer" type="HBoxContainer" parent="VBoxContainer/RecipeInformation/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="IngredientsContainer" type="VBoxContainer" parent="VBoxContainer/RecipeInformation/VBoxContainer/RecipeItemsContainer"]
+layout_mode = 2
+
+[node name="IngredientsLabel" type="Label" parent="VBoxContainer/RecipeInformation/VBoxContainer/RecipeItemsContainer/IngredientsContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("5_1taod")
+theme_override_font_sizes/font_size = 8
+text = "Ingredients"
+horizontal_alignment = 1
+
+[node name="IngredientsGridContainer" type="GridContainer" parent="VBoxContainer/RecipeInformation/VBoxContainer/RecipeItemsContainer/IngredientsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 2
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/RecipeInformation/VBoxContainer/RecipeItemsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+theme_override_styles/separator = SubResource("StyleBoxLine_ntnxj")
+
+[node name="ProductsContainer" type="VBoxContainer" parent="VBoxContainer/RecipeInformation/VBoxContainer/RecipeItemsContainer"]
+layout_mode = 2
+
+[node name="ProductsLabel" type="Label" parent="VBoxContainer/RecipeInformation/VBoxContainer/RecipeItemsContainer/ProductsContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("5_1taod")
+theme_override_font_sizes/font_size = 8
+text = "Products"
+horizontal_alignment = 1
+
+[node name="ProductsGridContainer" type="GridContainer" parent="VBoxContainer/RecipeInformation/VBoxContainer/RecipeItemsContainer/ProductsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 2
+
+[node name="CraftingButtonContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="x1" parent="VBoxContainer/CraftingButtonContainer" instance=ExtResource("2_gmwsg")]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "x1"
+
+[node name="x6" parent="VBoxContainer/CraftingButtonContainer" instance=ExtResource("2_gmwsg")]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "x5"
+
+[node name="x10" parent="VBoxContainer/CraftingButtonContainer" instance=ExtResource("2_gmwsg")]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "x10"
+
+[node name="x25" parent="VBoxContainer/CraftingButtonContainer" instance=ExtResource("2_gmwsg")]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "x25"
+
+[node name="x100" parent="VBoxContainer/CraftingButtonContainer" instance=ExtResource("2_gmwsg")]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 8
+text = "x100"
