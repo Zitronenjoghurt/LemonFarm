@@ -42,13 +42,14 @@ func craft_for_inventory(inventory: Inventory, amount: int = 1) -> bool:
 	
 	for i in range(len(required_items)):
 		var item = required_items[i]
-		var count = required_item_counts[i]
+		var count = required_item_counts[i] * amount
 		inventory.remove_item(item, count)
 	
 	for i in range(len(product_items)):
 		var item = product_items[i]
-		var count = RNG.randi_range(product_item_counts_min[i], product_item_counts_max[i])
-		inventory.add_item(item, count)
+		for j in range(amount):
+			var count = RNG.randi_range(product_item_counts_min[i], product_item_counts_max[i])
+			inventory.add_item(item, count)
 	
 	return true
 
@@ -96,7 +97,8 @@ static func map_recipes_to_categories(recipe_ids: Array[String]) -> Dictionary:
 		
 		for category in recipe.categories:
 			if category not in mapped_recipes:
-				mapped_recipes[category] = [recipe]
+				var recipe_list: Array[Recipe] = [recipe]
+				mapped_recipes[category] = recipe_list
 			else:
 				mapped_recipes[category].append(recipe)
 	return mapped_recipes

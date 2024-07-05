@@ -6,9 +6,12 @@ extends CanvasLayer
 @onready var inventory_dialog2: InventoryDialog = %InventoryDialog2
 @onready var pause_dialog: PauseDialog = %PauseDialog
 @onready var hot_bar: HotBar = %Hotbar
+@onready var crafting_menu: CraftingUI = %CraftingMenu
 
 @export var cell_indicator_scene: PackedScene
 var cell_indicator: CellIndicator = null
+
+signal crafting_menu_closed
 
 func _ready():
 	add_to_group("ui_root")
@@ -22,7 +25,10 @@ func _ready():
 	player.inventory_changed.connect(_on_player_inventory_change)
 	inventory_dialog1.inventory_updated.connect(_on_player_inventory_change)
 	inventory_dialog2.inventory_updated.connect(_on_player_inventory_change)
-
+	
+	crafting_menu.has_crafted.connect(_on_player_inventory_change)
+	crafting_menu.closed.connect(_on_crafting_menu_closed)
+	
 func _unhandled_input(event):
 	if Global.in_dialogue:
 		return
@@ -103,6 +109,12 @@ func open_secondary_inventory(inventory: Inventory, inventory_name: String, inve
 	inventory_dialog2.open(inventory, inventory_name, inventory_id)
 	inventory_dialog1.vertical_mode()
 	inventory_dialog2.vertical_mode()
+
+func open_crafting_menu():
+	crafting_menu.open(player.inventory)
+
+func _on_crafting_menu_closed():
+	crafting_menu_closed.emit()
 
 func _on_player_inventory_change():
 	hot_bar.update_items(player.inventory)

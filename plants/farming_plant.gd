@@ -100,4 +100,4 @@ func is_fully_grown() -> bool:
 	if not plant is Plant:
 		return false
 		
-	return age > len(plant.growth_stages) * plant.grow_time_per_stage
+	return age > (len(plant.growth_stages) - 1) * plant.grow_time_per_stage

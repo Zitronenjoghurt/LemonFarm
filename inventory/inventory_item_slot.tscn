@@ -1,28 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdgccwp42thel"]
+[gd_scene load_steps=5 format=3 uid="uid://cdgccwp42thel"]
 
+[ext_resource type="StyleBox" uid="uid://cxobo4rhlco5c" path="res://resources/ui/item_slot_normal.tres" id="1_h8ude"]
 [ext_resource type="Script" path="res://inventory/inventory_item_slot.gd" id="1_is1wg"]
-[ext_resource type="Texture2D" uid="uid://feo0gbc86svu" path="res://assets/ui/Square Buttons 26x26.png" id="1_vcqqq"]
 [ext_resource type="FontFile" uid="uid://ck3hd3gajq0mg" path="res://assets/fonts/pixelFont-1-5x4-sproutLands.ttf" id="3_ahr06"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jqocx"]
-atlas = ExtResource("1_vcqqq")
-region = Rect2(10, 107, 28, 28)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tpmlk"]
-content_margin_left = 5.0
-content_margin_top = 5.0
-content_margin_right = 5.0
-content_margin_bottom = 5.0
-texture = SubResource("AtlasTexture_jqocx")
-texture_margin_left = 20.0
-texture_margin_top = 20.0
-texture_margin_right = 20.0
-texture_margin_bottom = 20.0
+[ext_resource type="StyleBox" uid="uid://cgnab7yeidhvs" path="res://resources/ui/item_slot_focused.tres" id="3_vl4m5"]
 
 [node name="InventoryItemSlot" type="PanelContainer"]
 custom_minimum_size = Vector2(32, 32)
-theme_override_styles/panel = SubResource("StyleBoxTexture_tpmlk")
+theme_override_styles/panel = ExtResource("1_h8ude")
 script = ExtResource("1_is1wg")
+normal_panel = ExtResource("1_h8ude")
+focused_panel = ExtResource("3_vl4m5")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 unique_name_in_owner = true

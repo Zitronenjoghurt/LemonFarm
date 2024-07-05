@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://kfxnl4tcxstc"]
+
+[ext_resource type="Script" path="res://scripts/world_objects/crafting_bench.gd" id="1_8qird"]
+[ext_resource type="Texture2D" uid="uid://bdrdgttkk58ly" path="res://assets/decoration/work station.png" id="1_ovw4a"]
+[ext_resource type="PackedScene" uid="uid://bcc1ur52mqvws" path="res://scenes/interaction/InteractionArea.tscn" id="2_8q2kn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxnj0"]
+size = Vector2(30, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v488h"]
+size = Vector2(30, 11)
+
+[node name="CraftingBench" type="StaticBody2D"]
+script = ExtResource("1_8qird")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -10)
+texture = ExtResource("1_ovw4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_xxnj0")
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_8q2kn")]
+unique_name_in_owner = true
+action_name = "craft"
+x_offset = -22
+y_offset = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_v488h")

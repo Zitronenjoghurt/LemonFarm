@@ -28,7 +28,8 @@ func use(tilemap: TileMap, cell_coords: Vector2i) -> bool:
 		
 	var scene = load(plant_scene_path)
 	var plant_scene = scene.instantiate() as FarmingPlant
-	plant_scene.plant = plant
+	location.add_child(plant_scene)
+	plant_scene.set_plant(plant)
 	var position = tilemap.map_to_local(cell_coords)
 	
 	# Makes the plants seem less artificial
@@ -39,6 +40,5 @@ func use(tilemap: TileMap, cell_coords: Vector2i) -> bool:
 	
 	plant_scene.global_position = position
 	
-	location.add_child(plant_scene)
 	location.tiles_with_plant.append(cell_coords)
 	return true

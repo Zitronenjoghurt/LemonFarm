@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cfuap8fs16tmd"]
+[gd_scene load_steps=15 format=3 uid="uid://cfuap8fs16tmd"]
 
 [ext_resource type="StyleBox" uid="uid://c88k4xydwlc5w" path="res://resources/ui/dialog_background.tres" id="1_jr0tg"]
 [ext_resource type="PackedScene" uid="uid://c3fum4gxs5rkr" path="res://scenes/ui/regular_button.tscn" id="2_gmwsg"]
@@ -6,6 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://cdgccwp42thel" path="res://inventory/inventory_item_slot.tscn" id="3_rdpnv"]
 [ext_resource type="Texture2D" uid="uid://dtfooxn7j7oyq" path="res://assets/ui/menu.png" id="4_m2jl1"]
 [ext_resource type="FontFile" uid="uid://da3upsvs18iu7" path="res://assets/fonts/pixelFont-4-7x7-sproutLands.ttf" id="5_1taod"]
+[ext_resource type="Texture2D" uid="uid://bcw330c3q1eea" path="res://assets/ui/big_ui_sheet.png" id="5_tk6x4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fioeg"]
+atlas = ExtResource("5_tk6x4")
+region = Rect2(64, 656, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmk3d"]
+atlas = ExtResource("5_tk6x4")
+region = Rect2(80, 656, 16, 16)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8gbm"]
 content_margin_left = 2.0
@@ -54,18 +63,32 @@ item_slot = ExtResource("3_rdpnv")
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
-[node name="CategoryTabs" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="AllButton" parent="VBoxContainer/CategoryTabs" instance=ExtResource("2_gmwsg")]
+[node name="CategoryTabs" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="AllButton" parent="VBoxContainer/HBoxContainer/CategoryTabs" instance=ExtResource("2_gmwsg")]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
+toggle_mode = true
 text = "All"
 
-[node name="PlantsButton" parent="VBoxContainer/CategoryTabs" instance=ExtResource("2_gmwsg")]
+[node name="PlantsButton" parent="VBoxContainer/HBoxContainer/CategoryTabs" instance=ExtResource("2_gmwsg")]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 8
+toggle_mode = true
 text = "Plants"
+
+[node name="CloseButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_fioeg")
+texture_pressed = SubResource("AtlasTexture_mmk3d")
 
 [node name="RecipeSelection" type="ScrollContainer" parent="VBoxContainer"]
 custom_minimum_size = Vector2(225, 80)
@@ -110,21 +133,21 @@ autowrap_mode = 2
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/RecipeInformation/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 5
 theme_override_styles/separator = SubResource("StyleBoxLine_riox7")
 
 [node name="RecipeItemsContainer" type="HBoxContainer" parent="VBoxContainer/RecipeInformation/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 alignment = 1
 
 [node name="IngredientsContainer" type="VBoxContainer" parent="VBoxContainer/RecipeInformation/VBoxContainer/RecipeItemsContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="IngredientsLabel" type="Label" parent="VBoxContainer/RecipeInformation/VBoxContainer/RecipeItemsContainer/IngredientsContainer"]
+custom_minimum_size = Vector2(80, 2.08165e-12)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -148,8 +171,10 @@ theme_override_styles/separator = SubResource("StyleBoxLine_ntnxj")
 
 [node name="ProductsContainer" type="VBoxContainer" parent="VBoxContainer/RecipeInformation/VBoxContainer/RecipeItemsContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="ProductsLabel" type="Label" parent="VBoxContainer/RecipeInformation/VBoxContainer/RecipeItemsContainer/ProductsContainer"]
+custom_minimum_size = Vector2(80, 2.08165e-12)
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -171,31 +196,38 @@ layout_mode = 2
 alignment = 1
 
 [node name="x1" parent="VBoxContainer/CraftingButtonContainer" instance=ExtResource("2_gmwsg")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 8
 text = "x1"
 
-[node name="x6" parent="VBoxContainer/CraftingButtonContainer" instance=ExtResource("2_gmwsg")]
+[node name="x5" parent="VBoxContainer/CraftingButtonContainer" instance=ExtResource("2_gmwsg")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 8
 text = "x5"
 
 [node name="x10" parent="VBoxContainer/CraftingButtonContainer" instance=ExtResource("2_gmwsg")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 8
 text = "x10"
 
 [node name="x25" parent="VBoxContainer/CraftingButtonContainer" instance=ExtResource("2_gmwsg")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 8
 text = "x25"
 
 [node name="x100" parent="VBoxContainer/CraftingButtonContainer" instance=ExtResource("2_gmwsg")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 8
 text = "x100"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/CloseButton" to="." method="_on_close_button_pressed"]

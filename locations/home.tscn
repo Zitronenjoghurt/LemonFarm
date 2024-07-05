@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c5isj7gqvclgg"]
+[gd_scene load_steps=25 format=3 uid="uid://c5isj7gqvclgg"]
 
 [ext_resource type="Script" path="res://scripts/location.gd" id="1_esdv2"]
 [ext_resource type="PackedScene" uid="uid://b58f3rhrc0yg4" path="res://scenes/player.tscn" id="1_hyasa"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bcc1ur52mqvws" path="res://scenes/interaction/InteractionArea.tscn" id="18_1vgxq"]
 [ext_resource type="PackedScene" uid="uid://c4owwduaprerq" path="res://plants/farming_plant.tscn" id="18_oac5r"]
 [ext_resource type="Resource" uid="uid://bxnobbyu0ks12" path="res://plants/plant_data/corn_plant.tres" id="19_jgp8i"]
+[ext_resource type="PackedScene" uid="uid://kfxnl4tcxstc" path="res://scenes/world_objects/crafting_bench.tscn" id="21_5w77x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8q0hm"]
 size = Vector2(11, 10.75)
@@ -183,7 +184,7 @@ position = Vector2(54, 121)
 item = ExtResource("12_lmsb0")
 
 [node name="TableLamp" parent="." instance=ExtResource("17_xfn2n")]
-position = Vector2(119, -58)
+position = Vector2(74, -60)
 
 [node name="UIRoot" parent="." instance=ExtResource("10_523ae")]
 
@@ -226,5 +227,8 @@ item = ExtResource("13_nt3uo")
 [node name="DroppedItem18" parent="." instance=ExtResource("12_dclgw")]
 position = Vector2(65, 44)
 item = ExtResource("13_nt3uo")
+
+[node name="CraftingBench" parent="." instance=ExtResource("21_5w77x")]
+position = Vector2(110, -58)
 
 [editable path="Teleporter_0"]

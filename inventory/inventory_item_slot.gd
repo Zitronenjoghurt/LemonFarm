@@ -1,10 +1,14 @@
 class_name InventoryItemSlot
 extends PanelContainer
 
+@export var normal_panel: StyleBoxTexture
+@export var focused_panel: StyleBoxTexture
+
 @onready var texture_rect: TextureRect = %TextureRect
 @onready var item_count: Label = %ItemCount
 
 var index: int = -1
+var focused: bool = false
 
 signal slot_clicked(index: int, click_type: Enums.MouseClickType)
 
@@ -25,6 +29,14 @@ func display_item_without_amount(item: Item):
 	
 func overwrite_amount(amount: String):
 	item_count.text = amount
+	
+func focus():
+	focused = true
+	add_theme_stylebox_override("panel", focused_panel)
+	
+func unfocus():
+	focused = false
+	add_theme_stylebox_override("panel", normal_panel)
 
 func _on_gui_input(event):
 	if event is InputEventMouseButton and event.pressed:

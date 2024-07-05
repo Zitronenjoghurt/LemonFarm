@@ -3,6 +3,7 @@ extends Node
 const main_menu_scene_path: String = "res://scenes/main_menu.tscn"
 
 enum PlayerMoveBlocked {
+	CRAFTING,
 	DIALOGUE,
 	INVENTORY,
 	PAUSE
