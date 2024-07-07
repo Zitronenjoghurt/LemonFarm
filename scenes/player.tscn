@@ -1,4 +1,4 @@
-[gd_scene load_steps=173 format=3 uid="uid://b58f3rhrc0yg4"]
+[gd_scene load_steps=175 format=3 uid="uid://b58f3rhrc0yg4"]
 
 [ext_resource type="Texture2D" uid="uid://blc6f3b0bvxa3" path="res://assets/character/character_spritesheet.png" id="1_o5hin"]
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="2_1d1au"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://scripts/player/states/idle.gd" id="3_4koq7"]
 [ext_resource type="Script" path="res://scripts/player/states/walk.gd" id="4_3yu5h"]
 [ext_resource type="Script" path="res://scripts/player/states/till.gd" id="5_84v4s"]
+[ext_resource type="Script" path="res://scripts/player/states/chop.gd" id="6_l7nmv"]
+[ext_resource type="Script" path="res://scripts/zones/axe_hitbox.gd" id="8_l5qgs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n721a"]
 atlas = ExtResource("1_o5hin")
@@ -1271,11 +1273,15 @@ script = ExtResource("5_84v4s")
 sprite = NodePath("../../AnimatedSprite2D")
 player = NodePath("../..")
 
+[node name="Chop" type="Node" parent="FSM" node_paths=PackedStringArray("sprite", "player", "axe_hitbox")]
+script = ExtResource("6_l7nmv")
+sprite = NodePath("../../AnimatedSprite2D")
+player = NodePath("../..")
+axe_hitbox = NodePath("../../AxeHitbox")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qufrw")
-animation = &"axe_down"
-frame = 7
-frame_progress = 1.0
+animation = &"axe_up"
 offset = Vector2(2.08165e-12, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1283,29 +1289,28 @@ position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_8tnpy")
 
 [node name="AxeHitbox" type="Area2D" parent="."]
-unique_name_in_owner = true
-visible = false
+script = ExtResource("8_l5qgs")
 
 [node name="AxeHitboxLeft" type="CollisionShape2D" parent="AxeHitbox"]
 unique_name_in_owner = true
-visible = false
 position = Vector2(-8, -2.5)
 shape = SubResource("RectangleShape2D_3tofh")
+disabled = true
 
 [node name="AxeHitboxRight" type="CollisionShape2D" parent="AxeHitbox"]
 unique_name_in_owner = true
-visible = false
 position = Vector2(8, -2.5)
 shape = SubResource("RectangleShape2D_xreis")
+disabled = true
 
 [node name="AxeHitboxUp" type="CollisionShape2D" parent="AxeHitbox"]
 unique_name_in_owner = true
-visible = false
 position = Vector2(4.5, -20)
 shape = SubResource("RectangleShape2D_a62qo")
+disabled = true
 
 [node name="AxeHitboxDown" type="CollisionShape2D" parent="AxeHitbox"]
 unique_name_in_owner = true
-visible = false
 position = Vector2(-4.5, 2)
 shape = SubResource("RectangleShape2D_iysfq")
+disabled = true

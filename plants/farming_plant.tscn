@@ -23,7 +23,6 @@ position = Vector2(2.08165e-12, -14)
 unique_name_in_owner = true
 
 [node name="DropArea" parent="RandomDropArea" index="0"]
-position = Vector2(0, -14)
 shape = SubResource("CircleShape2D_qiv81")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_yv73w")]
@@ -34,7 +33,6 @@ y_offset = 1
 enabled = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, -14)
 shape = SubResource("CircleShape2D_bo36b")
 
 [editable path="RandomDropArea"]

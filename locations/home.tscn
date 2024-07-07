@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c5isj7gqvclgg"]
+[gd_scene load_steps=26 format=3 uid="uid://c5isj7gqvclgg"]
 
 [ext_resource type="Script" path="res://scripts/location.gd" id="1_esdv2"]
 [ext_resource type="PackedScene" uid="uid://b58f3rhrc0yg4" path="res://scenes/player.tscn" id="1_hyasa"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c4owwduaprerq" path="res://plants/farming_plant.tscn" id="18_oac5r"]
 [ext_resource type="Resource" uid="uid://bxnobbyu0ks12" path="res://plants/plant_data/corn_plant.tres" id="19_jgp8i"]
 [ext_resource type="PackedScene" uid="uid://kfxnl4tcxstc" path="res://scenes/world_objects/crafting_bench.tscn" id="21_5w77x"]
+[ext_resource type="PackedScene" uid="uid://d3whpypef1huh" path="res://scenes/world_objects/tree.tscn" id="22_mvxcr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8q0hm"]
 size = Vector2(11, 10.75)
@@ -230,5 +231,8 @@ item = ExtResource("13_nt3uo")
 
 [node name="CraftingBench" parent="." instance=ExtResource("21_5w77x")]
 position = Vector2(110, -58)
+
+[node name="Tree" parent="." instance=ExtResource("22_mvxcr")]
+position = Vector2(-26, -38)
 
 [editable path="Teleporter_0"]

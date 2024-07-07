@@ -1,6 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://d3whpypef1huh"]
+[gd_scene load_steps=33 format=3 uid="uid://d3whpypef1huh"]
 
+[ext_resource type="Script" path="res://scripts/world_objects/tree.gd" id="1_7yflc"]
 [ext_resource type="Texture2D" uid="uid://dy68bgnvoeixc" path="res://assets/plants/tree_sheet.png" id="1_yh7pu"]
+[ext_resource type="Script" path="res://scripts/zones/random_drop_area.gd" id="3_t7gcp"]
+[ext_resource type="Resource" uid="uid://drfworsymexxk" path="res://inventory/item_data/wood.tres" id="4_1f2je"]
+[ext_resource type="PackedScene" uid="uid://dq0tdof34fov0" path="res://scenes/entities/dropped_item.tscn" id="4_s24fy"]
+[ext_resource type="Resource" uid="uid://bqwyq3lbes0o3" path="res://inventory/item_data/twig.tres" id="5_1o2je"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vk3xm"]
 atlas = ExtResource("1_yh7pu")
@@ -183,16 +188,47 @@ animations = [{
 radius = 3.0
 height = 10.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t81ip"]
+size = Vector2(9, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3btts"]
+radius = 15.0333
+
 [node name="Tree" type="StaticBody2D"]
+script = ExtResource("1_7yflc")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -18)
+unique_name_in_owner = true
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_cjnu7")
-animation = &"hit"
-frame = 5
-frame_progress = 1.0
+animation = &"falling"
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_fluoj")
+
+[node name="ChopArea" type="Area2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChopArea"]
+position = Vector2(0.5, -4.5)
+shape = SubResource("RectangleShape2D_t81ip")
+
+[node name="RandomDropArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_t7gcp")
+items = Array[Resource("res://inventory/item_base_classes/item.gd")]([ExtResource("4_1f2je"), ExtResource("5_1o2je")])
+item_min_count = Array[int]([2, 1])
+item_max_count = Array[int]([5, 5])
+dropped_item_scene = ExtResource("4_s24fy")
+
+[node name="DropArea" type="CollisionShape2D" parent="RandomDropArea"]
+unique_name_in_owner = true
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_3btts")
+
+[connection signal="area_shape_entered" from="ChopArea" to="." method="_on_chop_area_area_shape_entered"]

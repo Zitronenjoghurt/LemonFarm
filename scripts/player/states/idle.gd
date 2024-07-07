@@ -26,6 +26,9 @@ func Update(delta: float):
 	
 	if Input.is_action_pressed("Till"):
 		state_transition.emit(self, "Till")
+		
+	if Input.is_action_pressed("Chop"):
+		state_transition.emit(self, "Chop")
 	
 func Exit():
 	pass
